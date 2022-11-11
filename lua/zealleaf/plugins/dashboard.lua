@@ -24,11 +24,6 @@ db.custom_header = {
 
 db.custom_center = {
 	{
-		icon = "                       ",
-		desc = "Run current                         ",
-		action = "ene!",
-	},
-	{
 		icon = "                       ",
 		desc = "Open Projects                       ",
 		action = "Telescope projects",
@@ -37,6 +32,11 @@ db.custom_center = {
 		icon = "                       ",
 		desc = "Recent files                        ",
 		action = "Telescope oldfiles",
+	},
+	{
+		icon = "                       ",
+		desc = "Run current                         ",
+		action = "ene!",
 	},
 	{
 		icon = "                       ",
