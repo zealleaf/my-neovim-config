@@ -24,22 +24,32 @@ db.custom_header = {
 
 db.custom_center = {
 	{
-		icon = "                         ",
-		desc = "Projects                            ",
+		icon = "                       ",
+		desc = "Run current                         ",
+		action = "ene!",
+	},
+	{
+		icon = "                       ",
+		desc = "Open Projects                       ",
 		action = "Telescope projects",
 	},
 	{
-		icon = "                         ",
-		desc = "Recently files                      ",
+		icon = "                       ",
+		desc = "Recent files                        ",
 		action = "Telescope oldfiles",
 	},
 	{
-		icon = "                         ",
+		icon = "                       ",
+		desc = "Find Text                           ",
+		action = "Telescope live_grep",
+	},
+	{
+		icon = "                       ",
 		desc = "Edit keybindings                    ",
 		action = "edit ~/.config/nvim/lua/zealleaf/core/keymaps.lua",
 	},
 	{
-		icon = "                         ",
+		icon = "                       ",
 		desc = "Edit projects history               ",
 		action = "edit ~/.local/share/nvim/project_nvim/project_history",
 	},
