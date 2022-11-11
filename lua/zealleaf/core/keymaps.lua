@@ -42,8 +42,8 @@ keymap.set("n", "<leader>-", "<C-x>") -- decrement
 -- window management
 -- 取消 s 默认功能
 keymap.set("n", "s", "", opt)
-keymap.set("n", "sv", ":vsp<CR>", opt)
-keymap.set("n", "sh", ":sp<CR>", opt)
+keymap.set("n", "sh", ":vsp<CR>", opt)
+keymap.set("n", "sv", ":sp<CR>", opt)
 keymap.set("n", "sx", "<C-w>c", opt)
 keymap.set("n", "so", "<C-w>o", opt) -- close others
 keymap.set("n", "s;", ":vertical resize +10<CR>", opt)
@@ -102,13 +102,16 @@ keymap.set("n", "<leader>src", ":lua require('spectre').open_file_search()")
 local pluginKeys = {}
 
 pluginKeys.nvimTreeList = { -- 打开文件或文件夹
+	-- Ignore
+	{ key = "s", action = "" },
+	-- 打开or 编辑文件
 	{ key = { "o", "<2-LeftMouse>" }, action = "edit" },
 	{ key = "so", action = "system_open" },
 	{ key = "<CR>", action = "open" },
-	-- v分屏打开文件
-	{ key = "sv", action = "vsplit" },
-	-- h分屏打开文件
-	{ key = "sh", action = "split" },
+	-- 垂直分屏打开文件, 用水平线分割
+	{ key = "sh", action = "vsplit" },
+	-- 水平分屏打开文件, 用垂线分割
+	{ key = "sv", action = "split" },
 	-- Ignore (node_modules)
 	{ key = "i", action = "toggle_ignored" },
 	-- Hide (dotfiles)
@@ -130,6 +133,9 @@ pluginKeys.nvimTreeList = { -- 打开文件或文件夹
 	{ key = { "]" }, action = "cd" },
 	-- 进入上一级
 	{ key = { "[" }, action = "dir_up" },
+	-- 折叠or 打开文件
+	{ key = { "zc" }, action = "collapse_all" },
+	{ key = { "zo" }, action = "expand_all" },
 }
 -- Telescope 列表中 插入模式快捷键
 pluginKeys.telescopeList = {

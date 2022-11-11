@@ -36,14 +36,13 @@ nvimtree.setup({
 	},
 	view = {
 		mappings = {
-			-- 只用内置快捷键
-			custom_only = true,
+			custom_only = false,
 			list = require("zealleaf.core.keymaps").nvimTreeList,
 		},
 	},
 	update_cwd = true,
 	update_focused_file = {
-	  enable = true,
-	  update_cwd = true,
+		enable = true,
+		update_cwd = true,
 	},
 })
