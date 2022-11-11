@@ -94,6 +94,9 @@ keymap.set("n", "<leader>sr", ":lua require('spectre').open()<CR>")
 keymap.set("v", "<leader>sr", ":lua require('spectre').open_visual({select_word=true})")
 keymap.set("n", "<leader>src", ":lua require('spectre').open_file_search()")
 
+-- outline
+keymap.set("n", "<leader>so", ":SymbolsOutline<CR>")
+
 -- 插件列表快捷键
 local pluginKeys = {}
 

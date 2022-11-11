@@ -151,6 +151,12 @@ return packer.startup(function(use)
 	-- color
 	use("norcalli/nvim-colorizer.lua")
 
+	-- outline
+	use({
+		"mxsdev/symbols-outline.nvim",
+		branch = "merge-jsx-tree",
+	})
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
