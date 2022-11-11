@@ -145,8 +145,11 @@ return packer.startup(function(use)
 	-- search and replace
 	use({ "windwp/nvim-spectre" })
 
-	-- outline
-	use("stevearc/aerial.nvim")
+	-- multi cursor
+	use("mg979/vim-visual-multi")
+
+	-- color
+	use("norcalli/nvim-colorizer.lua")
 
 	if packer_bootstrap then
 		require("packer").sync()

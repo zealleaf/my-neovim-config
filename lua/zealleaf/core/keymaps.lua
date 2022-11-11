@@ -81,17 +81,13 @@ keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if ne
 
 -- bufferline
 -- 左右Tab切换
-keymap.set("n", "<leader>bcp", ":BufferLineCyclePrev<CR>", opt)
-keymap.set("n", "<leader>bcn", ":BufferLineCycleNext<CR>", opt)
+keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", opt)
+keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>", opt)
 keymap.set("n", "<leader>bp", ":BufferLinePick<CR>", opt)
-keymap.set("n", "<leader>bpc", ":BufferLinePickClose<CR>", opt)
-keymap.set("n", "<leader>bcr", ":BufferLineCloseRight<CR>", opt)
-keymap.set("n", "<leader>bcl", ":BufferLineCloseLeft<CR>", opt)
+keymap.set("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
+keymap.set("n", "<leader>br", ":BufferLineCloseRight<CR>", opt)
+keymap.set("n", "<leader>bl", ":BufferLineCloseLeft<CR>", opt)
 keymap.set("n", "<C-w>", ":Bdelete!<CR>", opt)
-
--- aerial
-keymap.set("n", "<leader>ao", ":AerialOpen<CR>")
-keymap.set("n", "<leader>ac", ":AerialClose<CR>")
 
 -- search and replace
 keymap.set("n", "<leader>sr", ":lua require('spectre').open()<CR>")
