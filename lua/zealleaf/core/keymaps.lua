@@ -12,6 +12,7 @@ local opt = {
 ---------------------
 keymap.set("n", "<leader>w", ":w<CR>", opt)
 keymap.set("n", "<leader>wq", ":wqa!<CR>", opt)
+keymap.set("n", "q", "", opt)
 keymap.set("n", "qq", ":q!<CR>", opt)
 keymap.set("n", "<leader>q", ":qa!<CR>", opt)
 
