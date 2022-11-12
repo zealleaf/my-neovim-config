@@ -93,4 +93,11 @@ M.toggleG = function()
   lazygit:toggle()
 end
 
-require("zealleaf.core.keymaps").mapToggleTerm(M)
+local mapToggleTerm = function(tt)
+  vim.keymap.set({ "n", "t" }, "<leader>tf", tt.toggleA)
+  vim.keymap.set({ "n", "t" }, "<leader>tl", tt.toggleB)
+  vim.keymap.set({ "n", "t" }, "<leader>tb", tt.toggleC)
+  vim.keymap.set({ "n", "t" }, "<leader>g", tt.toggleG)
+end
+
+mapToggleTerm(M)

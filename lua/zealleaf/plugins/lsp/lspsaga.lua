@@ -1,18 +1,21 @@
--- import lspsaga safely
-local saga_status, saga = pcall(require, "lspsaga")
-if not saga_status then
-	return
+local status, saga = pcall(require, "lspsaga")
+if not status then
+  return
 end
 
 saga.init_lsp_saga({
-	-- keybinds for navigation in lspsaga window
-	move_in_saga = { prev = "<C-k>", next = "<C-j>" },
-	-- use enter to open file with finder
-	finder_action_keys = {
-		open = "<CR>",
-	},
-	-- use enter to open file with definition preview
-	definition_action_keys = {
-		edit = "<CR>",
-	},
+  server_filetype_map = {
+    typescript = "typescript",
+  },
 })
+
+local opts = { noremap = true, silent = true }
+vim.keymap.set("n", "gh", "<Cmd>Lspsaga hover_doc<CR>", opts)
+vim.keymap.set("n", "gd", "<Cmd>Lspsaga lsp_finder<CR>", opts)
+vim.keymap.set("n", "gp", "<Cmd>Lspsaga peek_definition<CR>", opts)
+vim.keymap.set("n", "gr", "<Cmd>Lspsaga rename<CR>", opts)
+vim.keymap.set("n", "ga", "<Cmd>Lspsaga code_action<CR>", opts)
+vim.keymap.set("n", "gl", ":LspRestart<CR>", opts)
+vim.keymap.set("n", "gs", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
+vim.keymap.set("n", "gs", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
+-- gf 根据文件路径跳转 cmp-path

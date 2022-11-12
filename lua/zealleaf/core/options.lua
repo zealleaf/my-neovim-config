@@ -1,3 +1,5 @@
+vim.o.timeoutlen = 223
+
 local opt = vim.opt -- for conciseness
 
 -- line numbers
