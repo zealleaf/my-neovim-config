@@ -5,8 +5,8 @@ vim.cmd("autocmd!")
 vim.g.mapleader = ";"
 local keymap = vim.keymap
 local opt = {
-  noremap = true,
-  silent = true,
+	noremap = true,
+	silent = true,
 }
 keymap.set("n", "s", ":w!<CR>", opt)
 keymap.set("n", "ss", ":wa!<CR>", opt)
@@ -27,7 +27,7 @@ keymap.set("v", "H", "^")
 keymap.set("v", "L", "$")
 
 -- clear search highlights
-keymap.set("n", "<C-n>", ":nohl<CR>")
+keymap.set("n", "<C-n>", ":nohlsearch<CR>")
 
 -- delete single character without copying into register
 keymap.set("n", "x", '"_x')
@@ -49,6 +49,6 @@ keymap.set("n", "s=", "<C-w>=", opt)
 
 -- Turn off paste mode when leaving insert
 vim.api.nvim_create_autocmd("InsertLeave", {
-  pattern = "*",
-  command = "set nopaste",
+	pattern = "*",
+	command = "set nopaste",
 })
