@@ -48,6 +48,7 @@ return packer.startup(function(use)
 
 	-- commenting with gc
 	use("numToStr/Comment.nvim")
+	use("JoosepAlviste/nvim-ts-context-commentstring")
 
 	-- file explorer
 	use("nvim-tree/nvim-tree.lua")
@@ -140,7 +141,7 @@ return packer.startup(function(use)
 	use({ "windwp/nvim-spectre" })
 
 	-- multi cursor
-	use("mg979/vim-visual-multi")
+	-- use("mg979/vim-visual-multi")
 
 	-- color
 	use("norcalli/nvim-colorizer.lua")
@@ -149,6 +150,14 @@ return packer.startup(function(use)
 	use({
 		"mxsdev/symbols-outline.nvim",
 		branch = "merge-jsx-tree",
+	})
+
+	--fold
+	use({
+		"anuvyklack/pretty-fold.nvim",
+		config = function()
+			require("pretty-fold").setup()
+		end,
 	})
 
 	if packer_bootstrap then

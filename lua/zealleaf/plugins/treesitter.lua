@@ -1,30 +1,34 @@
 -- import nvim-treesitter plugin safely
 local status, treesitter = pcall(require, "nvim-treesitter.configs")
 if not status then
-  return
+	return
 end
 
 treesitter.setup({
-  highlight = {
-    enable = true,
-    disable = {},
-  },
-  indent = { enable = true, disable = {} },
-  autotag = { enable = true, disable = {} },
-  ensure_installed = {
-    "json",
-    "javascript",
-    "typescript",
-    "tsx",
-    "yaml",
-    "html",
-    "css",
-    "markdown",
-    "bash",
-    "lua",
-    "vim",
-    "gitignore",
-  },
+	highlight = {
+		enable = true,
+		disable = {},
+	},
+	indent = { enable = true, disable = {} },
+	autotag = { enable = true, disable = {} },
+	ensure_installed = {
+		"json",
+		"javascript",
+		"typescript",
+		"tsx",
+		"yaml",
+		"html",
+		"css",
+		"markdown",
+		"bash",
+		"lua",
+		"vim",
+		"gitignore",
+	},
+	context_commentstring = {
+		enable = true,
+		enable_autocmd = false,
+	},
 })
 
 -- 开启 Folding 模块

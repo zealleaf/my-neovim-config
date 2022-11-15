@@ -27,7 +27,7 @@ keymap.set("v", "H", "^")
 keymap.set("v", "L", "$")
 
 -- clear search highlights
-keymap.set("n", "<C-n>", ":nohlsearch<CR>")
+keymap.set("n", "<C-n>", ":nohlsearch<CR>", opt)
 
 -- delete single character without copying into register
 keymap.set("n", "x", '"_x')
