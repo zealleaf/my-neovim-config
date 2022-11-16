@@ -160,6 +160,9 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- editorconfig
+	use("gpanders/editorconfig.nvim")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
