@@ -40,7 +40,6 @@ local on_attach = function(client, bufnr)
 		vim.keymap.set("n", "gtr", ":TypescriptRenameFile<CR>") -- rename file and update imports
 		vim.keymap.set("n", "gti", ":TypescriptOrganizeImports<CR>") -- organize imports
 		vim.keymap.set("n", "gtu", ":TypescriptRemoveUnused<CR>") -- remove unused variables
-		vim.keymap.set("n", "gto", ":TSLspOrganize<CR>") -- organize
 	end
 end
 
