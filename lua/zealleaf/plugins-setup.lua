@@ -35,7 +35,10 @@ return packer.startup(function(use)
 	use("nvim-lua/plenary.nvim")
 
 	-- theme
-	use({ "catppuccin/nvim", as = "catppuccin" })
+	use({
+		"catppuccin/nvim",
+		as = "catppuccin",
+	})
 
 	-- tmux & split window navigation  now use wezterm
 	use("christoomey/vim-tmux-navigator")
@@ -87,19 +90,24 @@ return packer.startup(function(use)
 
 	-- formatting & linting
 	use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
-	use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
+	-- use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
 
 	-- treesitter configuration
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = function()
-			require("nvim-treesitter.install").update({ with_sync = true })
+			require("nvim-treesitter.install").update({
+				with_sync = true,
+			})
 		end,
 	})
 
 	-- auto closing
 	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
-	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
+	use({
+		"windwp/nvim-ts-autotag",
+		after = "nvim-treesitter",
+	}) -- autoclose tags
 
 	-- git integration
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
@@ -130,7 +138,9 @@ return packer.startup(function(use)
 		branch = "v2", -- optional but strongly recommended
 		config = function()
 			-- you can configure Hop the way you like here; see :h hop-config
-			require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
+			require("hop").setup({
+				keys = "etovxqpdygfblzhckisuran",
+			})
 		end,
 	})
 
@@ -152,7 +162,7 @@ return packer.startup(function(use)
 		branch = "merge-jsx-tree",
 	})
 
-	--fold
+	-- fold
 	use({
 		"anuvyklack/pretty-fold.nvim",
 		config = function()
