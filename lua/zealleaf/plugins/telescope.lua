@@ -14,6 +14,7 @@ local fb_actions = require("telescope").extensions.file_browser.actions
 telescope.setup({
 	-- configure custom mappings
 	defaults = {
+		file_ignore_patterns = { "node_modules", ".git" },
 		mappings = {
 			i = {
 				["<C-k>"] = actions.move_selection_previous, -- move to prev result

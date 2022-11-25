@@ -13,6 +13,7 @@ keymap.set("n", "ss", ":wa!<CR>", opt)
 keymap.set("n", "q", ":q!<CR>", opt)
 keymap.set("n", "qq", ":qa!<CR>", opt)
 -- use <C-Spa> to exit insert mode
+keymap.set("i", "jk", "<esc>")
 keymap.set("n", "J", "", opt)
 keymap.set("n", "H", "^")
 keymap.set("n", "L", "$")
