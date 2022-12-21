@@ -4,8 +4,8 @@ if not status then
 	return
 end
 
-lualine.setup({
-	options = {
-		theme = "catppuccin",
-	},
-})
+-- options = {
+-- 	theme = "catppuccin",
+-- },
+
+lualine.setup({})

@@ -40,6 +40,8 @@ return packer.startup(function(use)
 		as = "catppuccin",
 	})
 
+	use("folke/tokyonight.nvim")
+
 	-- tmux & split window navigation  now use wezterm
 	use("christoomey/vim-tmux-navigator")
 
@@ -67,6 +69,7 @@ return packer.startup(function(use)
 	-- telescope
 	use({ "nvim-telescope/telescope.nvim" })
 	use("nvim-telescope/telescope-file-browser.nvim")
+	use("xiyaowong/telescope-emoji.nvim")
 
 	-- autocompletion
 	use("hrsh7th/nvim-cmp") -- completion plugin
