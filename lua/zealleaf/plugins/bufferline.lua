@@ -1,39 +1,39 @@
 local status, bufferline = pcall(require, "bufferline")
 if not status then
-  vim.notify("没有找到 bufferline")
-  return
+	vim.notify("没有找到 bufferline")
+	return
 end
 
 -- bufferline 配置
 -- https://github.com/akinsho/bufferline.nvim#configuration
 bufferline.setup({
-  options = {
-    close_icon = "",
-    show_buffer_close_icons = false,
-    -- 侧边栏配置
-    offsets = {
-      {
-        filetype = "NvimTree",
-        text = "File Explorer",
-        highlight = "Directory",
-        text_align = "left",
-      },
-    },
-    diagnostics = "nvim_lsp",
-    ---@diagnostic disable-next-line: unused-local
-    diagnostics_indicator = function(count, level, diagnostics_dict, context)
-      local s = " "
-      for e, n in pairs(diagnostics_dict) do
-        local sym = e == "error" and "   " or (e == "warning" and "   " or "  ")
-        s = s .. n .. sym
-      end
-      return s
-    end,
-  },
+	options = {
+		close_icon = "",
+		show_buffer_close_icons = false,
+		-- 侧边栏配置
+		offsets = {
+			{
+				filetype = "NvimTree",
+				text = "File Explorer",
+				highlight = "Directory",
+				text_align = "left",
+			},
+		},
+		diagnostics = "nvim_lsp",
+		---@diagnostic disable-next-line: unused-local
+		-- diagnostics_indicator = function(count, level, diagnostics_dict, context)
+		--   local s = " "
+		--   for e, n in pairs(diagnostics_dict) do
+		--     local sym = e == "error" and "   " or (e == "warning" and "   " or "  ")
+		--     s = s .. n .. sym
+		--   end
+		--   return s
+		-- end,
+	},
 })
 
-vim.keymap.set('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>', {})
-vim.keymap.set('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', {})
+vim.keymap.set("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", {})
+vim.keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", {})
 vim.keymap.set("n", "<Tab>p", ":BufferLinePick<CR>")
 vim.keymap.set("n", "<Tab>c", ":BufferLinePickClose<CR>")
 vim.keymap.set("n", "<Tab>l", ":BufferLineCloseRight<CR>")

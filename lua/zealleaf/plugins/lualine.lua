@@ -4,8 +4,6 @@ if not status then
 	return
 end
 
--- options = {
--- 	theme = "catppuccin",
--- },
-
-lualine.setup({})
+lualine.setup({
+	theme = "tokyonight", -- "catppuccin"
+})
