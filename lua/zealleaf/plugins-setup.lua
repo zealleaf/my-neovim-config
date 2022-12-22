@@ -35,12 +35,13 @@ return packer.startup(function(use)
 	use("nvim-lua/plenary.nvim")
 
 	-- theme
+	use("folke/tokyonight.nvim")
 	use({
 		"catppuccin/nvim",
 		as = "catppuccin",
 	})
-
-	use("folke/tokyonight.nvim")
+	use({ "projekt0n/github-nvim-theme" })
+	use("navarasu/onedark.nvim")
 
 	-- tmux & split window navigation  now use wezterm
 	use("christoomey/vim-tmux-navigator")
