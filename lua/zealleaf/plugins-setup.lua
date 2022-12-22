@@ -40,7 +40,8 @@ return packer.startup(function(use)
 		"catppuccin/nvim",
 		as = "catppuccin",
 	})
-	use({ "projekt0n/github-nvim-theme" })
+	use("EdenEast/nightfox.nvim")
+	use("projekt0n/github-nvim-theme")
 	use("navarasu/onedark.nvim")
 
 	-- tmux & split window navigation  now use wezterm
