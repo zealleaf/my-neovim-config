@@ -8,27 +8,32 @@ end
 -- https://github.com/akinsho/bufferline.nvim#configuration
 bufferline.setup({
 	options = {
-		close_icon = "",
+		-- mode = "tabs",
+		-- separator_style = "slant",
+		always_show_bufferline = false,
 		show_buffer_close_icons = false,
-		-- 侧边栏配置
-		offsets = {
-			{
-				filetype = "NvimTree",
-				text = "File Explorer",
-				highlight = "Directory",
-				text_align = "left",
-			},
+		show_close_icon = false,
+		color_icons = true,
+	},
+	highlights = {
+		separator = {
+			fg = "#073642",
+			bg = "#002b36",
 		},
-		diagnostics = "nvim_lsp",
-		---@diagnostic disable-next-line: unused-local
-		-- diagnostics_indicator = function(count, level, diagnostics_dict, context)
-		--   local s = " "
-		--   for e, n in pairs(diagnostics_dict) do
-		--     local sym = e == "error" and "   " or (e == "warning" and "   " or "  ")
-		--     s = s .. n .. sym
-		--   end
-		--   return s
-		-- end,
+		separator_selected = {
+			fg = "#073642",
+		},
+		background = {
+			fg = "#657b83",
+			bg = "#002b36",
+		},
+		buffer_selected = {
+			fg = "#fdf6e3",
+			bold = true,
+		},
+		fill = {
+			bg = "#073642",
+		},
 	},
 })
 
