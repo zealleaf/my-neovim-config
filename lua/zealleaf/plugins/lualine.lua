@@ -4,6 +4,4 @@ if not status then
 	return
 end
 
-lualine.setup({
-	theme = "tokyonight", -- "catppuccin"
-})
+lualine.setup({})
