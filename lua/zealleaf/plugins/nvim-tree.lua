@@ -36,9 +36,9 @@ nvimtree.setup({
 	},
 	view = {
 		side = "right",
-		width = 46,
+		width = 35,
 		mappings = {
-			custom_only = false,
+			custom_only = true,
 			list = {
 				-- Ignore
 				{ key = "s", action = "" },
