@@ -43,6 +43,12 @@ return packer.startup(function(use)
 	use("EdenEast/nightfox.nvim")
 	use("projekt0n/github-nvim-theme")
 	use("navarasu/onedark.nvim")
+	use("pineapplegiant/spaceduck")
+	use("arcticicestudio/nord-vim")
+	use({
+		"svrana/neosolarized.nvim",
+		requires = { "tjdevries/colorbuddy.nvim" },
+	})
 
 	-- tmux & split window navigation  now use wezterm
 	use("christoomey/vim-tmux-navigator")
