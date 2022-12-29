@@ -8,12 +8,18 @@ end
 -- https://github.com/akinsho/bufferline.nvim#configuration
 bufferline.setup({
 	options = {
-		-- mode = "tabs",
-		-- separator_style = "slant",
 		always_show_bufferline = false,
 		show_buffer_close_icons = false,
 		show_close_icon = false,
 		color_icons = true,
+		offsets = {
+			{
+				filetype = "NvimTree",
+				text = "File Explorer",
+				text_align = "left",
+				separator = true,
+			},
+		},
 	},
 	highlights = {
 		separator = {
@@ -30,6 +36,7 @@ bufferline.setup({
 		buffer_selected = {
 			fg = "#fdf6e3",
 			bold = true,
+			italic = false,
 		},
 		fill = {
 			bg = "#073642",
