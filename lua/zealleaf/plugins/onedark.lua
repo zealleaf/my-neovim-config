@@ -45,10 +45,10 @@ onedark.setup({
 		undercurl = true, -- use undercurl instead of underline for diagnostics
 		background = false, -- use background color for virtual text
 	},
-
 	highlights = {
 		CmpItemAbbrMatch = colors.Blue,
 		rainbowcol1 = colors.LightGrey,
+		PmenuSel = { fg = c.bg0, bg = c.orange },
 	},
 })
 
