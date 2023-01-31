@@ -41,7 +41,7 @@ return packer.startup(function(use)
 		as = "catppuccin",
 	})
 	use("EdenEast/nightfox.nvim")
-	use("projekt0n/github-nvim-theme")
+	use({ "projekt0n/github-nvim-theme", tag = "v0.0.7" })
 	use("navarasu/onedark.nvim")
 	use("pineapplegiant/spaceduck")
 	use("arcticicestudio/nord-vim")
@@ -129,7 +129,84 @@ return packer.startup(function(use)
 	use("gelguy/wilder.nvim")
 
 	-- dashboard
-	use({ "glepnir/dashboard-nvim" })
+	use({
+		"glepnir/dashboard-nvim",
+		event = "VimEnter",
+		config = function()
+			require("dashboard").setup({
+				theme = "doom",
+				config = {
+					header = {
+						[[]],
+						[[]],
+						[[]],
+						[[]],
+						[[]],
+						[[]],
+						[[]],
+						[[]],
+						[[]],
+						[[]],
+						[[]],
+						[[                                            ,--,    ,--,                                       ]],
+						[[                                          ,--.'|  ,--.'|                           .--.,       ]],
+						[[              ,----,                      |  | :  |  | :                         ,--.'  \      ]],
+						[[            .'   .`|                      :  : '  :  : '                         |  | /\/      ]],
+						[[         .'   .'  .'   ,---.     ,--.--.  |  ' |  |  ' |      ,---.     ,--.--.  :  : :        ]],
+						[[       ,---, '   ./   /     \   /       \ '  | |  '  | |     /     \   /       \ :  | |-       ]],
+						[[       ;   | .'  /   /    /  | .--.  .-. ||  | :  |  | :    /    /  | .--.  .-. ||  : :/|      ]],
+						[[       `---' /  ;--,.    ' / |  \__\/: . .'  : |__'  : |__ .    ' / |  \__\/: . .|  |  .'      ]],
+						[[         /  /  / .`|'   ;   /|  ," .--.; ||  | '.'|  | '.'|'   ;   /|  ," .--.; |'  : '        ]],
+						[[       ./__;     .' '   |  / | /  /  ,.  |;  :    ;  :    ;'   |  / | /  /  ,.  ||  | |        ]],
+						[[       ;   |  .'    |   :    |;  :   .'   \  ,   /|  ,   / |   :    |;  :   .'   \  : \        ]],
+						[[       `---'         \   \  / |  ,     .-./---`-'  ---`-'   \   \  / |  ,     .-./  |,'        ]],
+						[[                      `----'   `--`---'                      `----'   `--`---'   `--'          ]],
+						[[]],
+						[[]],
+						[[]],
+					},
+					center = {
+						{
+							icon = "                       ",
+							desc = "Open Projects                       ",
+							action = "Telescope projects",
+						},
+						{
+							icon = "                       ",
+							desc = "Recent files                        ",
+							action = "Telescope oldfiles",
+						},
+						{
+							icon = "                       ",
+							desc = "Run current                         ",
+							action = "ene!",
+						},
+						{
+							icon = "                       ",
+							desc = "Find Text                           ",
+							action = "Telescope live_grep",
+						},
+						{
+							icon = "                       ",
+							desc = "Edit keybindings                    ",
+							action = "edit ~/.config/nvim/lua/zealleaf/core/keymaps-base.lua",
+						},
+						{
+							icon = "                       ",
+							desc = "Edit projects history               ",
+							action = "edit ~/.local/share/nvim/project_nvim/project_history",
+						},
+					},
+					footer = {
+						[[]],
+						[[]],
+						[[code as life]],
+					},
+				},
+			})
+		end,
+		requires = { "nvim-tree/nvim-web-devicons" },
+	})
 	use("ahmedkhalf/project.nvim")
 
 	-- toggleterm

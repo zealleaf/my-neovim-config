@@ -8,7 +8,7 @@ require("zealleaf.core.keymaps-plugin")
 -- 主题设置
 require("zealleaf.core.colorscheme")
 -- require("zealleaf.plugins.neosolarized")
-require("zealleaf.plugins.onedark")
+-- require("zealleaf.plugins.onedark")
 
 -- LSP
 require("zealleaf.plugins.lsp.lspcolors")
@@ -31,7 +31,7 @@ require("zealleaf.plugins.treesitter")
 require("zealleaf.plugins.gitsigns")
 require("zealleaf.plugins.bufferline")
 require("zealleaf.plugins.wilder")
-require("zealleaf.plugins.dashboard")
+-- require("zealleaf.plugins.dashboard")
 require("zealleaf.plugins.project")
 require("zealleaf.plugins.toggleterm")
 require("zealleaf.plugins.colorizer")
