@@ -39,7 +39,7 @@ local colors = {
 }
 
 onedark.setup({
-	style = "warmer",
+	style = "darker",
 	diagnostics = {
 		darker = true, -- darker colors for diagnostic
 		undercurl = true, -- use undercurl instead of underline for diagnostics
@@ -49,6 +49,13 @@ onedark.setup({
 		CmpItemAbbrMatch = colors.Blue,
 		rainbowcol1 = colors.LightGrey,
 		PmenuSel = { fg = c.bg0, bg = c.orange },
+	},
+	code_style = {
+		comments = "none",
+		keywords = "italic",
+		functions = "none",
+		strings = "none",
+		variables = "none",
 	},
 })
 
