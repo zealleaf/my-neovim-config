@@ -3,4 +3,6 @@ if not status then
 	return
 end
 
-githubTheme.setup({})
+githubTheme.setup({
+	keyword_style = "NONE",
+})
