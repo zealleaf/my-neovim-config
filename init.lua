@@ -7,7 +7,7 @@ require("zealleaf.core.keymaps-plugin")
 
 -- 主题设置
 require("zealleaf.core.colorscheme")
--- require("zealleaf.plugins.github-theme")
+require("zealleaf.plugins.github-theme")
 -- require("zealleaf.plugins.neosolarized")
 -- require("zealleaf.plugins.onedark")
 

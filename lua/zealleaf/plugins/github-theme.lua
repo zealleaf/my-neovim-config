@@ -5,5 +5,5 @@ end
 
 githubTheme.setup({
 	theme_style = "dimmed",
-	keyword_style = "NONE",
+	-- keyword_style = "NONE",
 })
