@@ -1,17 +1,16 @@
--- import null-ls plugin safely
+--[[
+-- 格式化
+-- 根据lint格式化，保存的时候格式化
+--]]
 local setup, null_ls = pcall(require, "null-ls")
 if not setup then
 	return
 end
 
--- for conciseness
-local formatting = null_ls.builtins.formatting -- to setup formatters
-local diagnostics = null_ls.builtins.diagnostics -- to setup linters
-
--- to setup format on save
+local formatting = null_ls.builtins.formatting
+local diagnostics = null_ls.builtins.diagnostics
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
--- configure null_ls
 null_ls.setup({
 	sources = {
 		formatting.stylua, -- lua formatter
@@ -41,7 +40,6 @@ null_ls.setup({
 			end,
 		}),
 	},
-	-- configure format on save
 	on_attach = function(current_client, bufnr)
 		if current_client.supports_method("textDocument/formatting") then
 			vim.api.nvim_clear_autocmds({

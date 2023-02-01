@@ -1,4 +1,8 @@
--- auto install packer if not installed
+--[[
+-- neovim 插件管理器
+--]]
+
+-- 如果没有安装就自动安装
 local ensure_packer = function()
 	local fn = vim.fn
 	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
@@ -9,32 +13,23 @@ local ensure_packer = function()
 	end
 	return false
 end
+
 local packer_bootstrap = ensure_packer() -- true if packer was just installed
 
--- autocommand that reloads neovim and installs/updates/removes plugins
--- when file is saved
-vim.cmd([[ 
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
-  augroup end
-]])
-
--- import packer safely
 local status, packer = pcall(require, "packer")
 if not status then
 	return
 end
 
--- add list of plugins to install
+-- 插件列表
 return packer.startup(function(use)
-	-- packer can manage itself
+	-- 包管理器
 	use("wbthomason/packer.nvim")
 
-	-- lua functions that many plugins use
+	-- lua函数提供
 	use("nvim-lua/plenary.nvim")
 
-	-- theme
+	-- 主题
 	use("folke/tokyonight.nvim")
 	use({
 		"catppuccin/nvim",
@@ -45,68 +40,68 @@ return packer.startup(function(use)
 	use("navarasu/onedark.nvim")
 	use("pineapplegiant/spaceduck")
 	use("arcticicestudio/nord-vim")
-	use({
-		"svrana/neosolarized.nvim",
-		requires = { "tjdevries/colorbuddy.nvim" },
-	})
 
-	-- tmux & split window navigation  now use wezterm
+	-- tmux相关
 	use("christoomey/vim-tmux-navigator")
 
-	-- maximizes and restores current window
+	-- 缩放终端
 	use("szw/vim-maximizer")
 
-	-- essential plugins
+	-- vim-surround操作
 	use("tpope/vim-surround") -- add, delete, change surroundings (it's awesome)
 
-	-- commenting with gc
+	-- 注释
 	use("numToStr/Comment.nvim")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 
-	-- file explorer
+	-- 文件目录树
 	use("nvim-tree/nvim-tree.lua")
 
-	-- vs-code like icons
+	-- 各种图标
 	use("kyazdani42/nvim-web-devicons")
 
-	-- statusline
+	-- 各种栏
 	use("moll/vim-bbye")
 	use("akinsho/bufferline.nvim")
 	use("nvim-lualine/lualine.nvim")
 
-	-- telescope
+	-- 浮窗操作
 	use({ "nvim-telescope/telescope.nvim" })
 	use("nvim-telescope/telescope-file-browser.nvim")
 	use("xiyaowong/telescope-emoji.nvim")
 
-	-- autocompletion
+	-- 自动完成、提示等
 	use("hrsh7th/nvim-cmp") -- completion plugin
 	use("hrsh7th/cmp-buffer") -- source for text in buffer
 	use("hrsh7th/cmp-path") -- source for file system paths
 	use("hrsh7th/cmp-nvim-lsp") -- nvim-cmp source for neovim's built-in LSP
+
+	-- 语言服务协议提供
+	use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
+	use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
+	use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
 	use("neovim/nvim-lspconfig") -- easily configure language servers
 	use("glepnir/lspsaga.nvim") -- enhanced lsp uis
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 	use("folke/lsp-colors.nvim") -- lsp colors
 	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
+	use("simrat39/rust-tools.nvim") -- Adds extra functionality over rust analyzer
 
-	-- snippets
+	-- markdown
+	use({ "iamcco/markdown-preview.nvim" })
+
+	-- editorconfig
+	use("gpanders/editorconfig.nvim")
+
+	-- 代码片段
 	use("L3MON4D3/LuaSnip") -- snippet engine
 	use("saadparwaiz1/cmp_luasnip") -- for autocompletion
 	use("rafamadriz/friendly-snippets") -- useful snippets
 
-	-- Adds extra functionality over rust analyzer
-	use("simrat39/rust-tools.nvim")
-
-	-- managing & installing lsp servers, linters & formatters
-	use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
-	use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
-
-	-- formatting & linting
+	-- 代码格式化与检查
 	use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
-	use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
 
-	-- treesitter configuration
+	-- 代码语法高亮
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = function()
@@ -115,39 +110,33 @@ return packer.startup(function(use)
 			})
 		end,
 	})
-	use("p00f/nvim-ts-rainbow")
 
-	-- auto closing
+	-- 颜色提示
+	use("norcalli/nvim-colorizer.lua")
+
+	-- 代码括号操作
+	use("p00f/nvim-ts-rainbow")
 	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
 	use({
 		"windwp/nvim-ts-autotag",
 		after = "nvim-treesitter",
-	}) -- autoclose tags
+	})
 
-	-- git integration
+	-- git整合
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 	use("dinhhuy258/git.nvim") -- For git blame & browse
 
-	-- command suggestions
+	-- vim以及插件命令建议
 	use("gelguy/wilder.nvim")
 
-	-- dashboard
+	-- neovim仪表盘
 	use("glepnir/dashboard-nvim")
 	use("ahmedkhalf/project.nvim")
 
-	-- toggleterm
+	-- 切换各个位置的终端
 	use("akinsho/toggleterm.nvim")
 
-	-- git conflict
-	use({
-		"akinsho/git-conflict.nvim",
-		tag = "*",
-		config = function()
-			require("git-conflict").setup()
-		end,
-	})
-
-	-- hop easymotion
+	-- 快速跳转到指定位置
 	use({
 		"phaazon/hop.nvim",
 		branch = "v2", -- optional but strongly recommended
@@ -159,34 +148,22 @@ return packer.startup(function(use)
 		end,
 	})
 
-	-- markdown
-	use({ "iamcco/markdown-preview.nvim" })
-
-	-- search and replace
+	-- 搜索与替换
 	use({ "windwp/nvim-spectre" })
 
-	-- multi cursor
-	-- use("mg979/vim-visual-multi")
-
-	-- color
-	use("norcalli/nvim-colorizer.lua")
-
-	-- outline
+	-- 文件大纲
 	use({
 		"mxsdev/symbols-outline.nvim",
 		branch = "merge-jsx-tree",
 	})
 
-	-- fold
+	-- 代码、文件折叠与展开
 	use({
 		"anuvyklack/pretty-fold.nvim",
 		config = function()
 			require("pretty-fold").setup()
 		end,
 	})
-
-	-- editorconfig
-	use("gpanders/editorconfig.nvim")
 
 	if packer_bootstrap then
 		require("packer").sync()

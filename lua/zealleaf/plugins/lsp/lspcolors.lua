@@ -1,3 +1,6 @@
+--[[
+-- 提示颜色
+--]]
 local status, colors = pcall(require, "lsp-colors")
 if not status then
 	return

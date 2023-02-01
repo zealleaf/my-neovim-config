@@ -1,39 +1,37 @@
-local status, nvim_lsp = pcall(require, "lspconfig")
+--[[
+-- 各种语言服务协议的配置与管理
+--]]
+local status, lspconfig = pcall(require, "lspconfig")
 if not status then
 	return
 end
 
-local status1, typescript = pcall(require, "typescript")
-if not status1 then
+local cmp_nvim_lsp_status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not cmp_nvim_lsp_status then
 	return
 end
 
-local protocol = require("vim.lsp.protocol")
-local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
-local enable_format_on_save = function(_, bufnr)
-	vim.api.nvim_clear_autocmds({ group = augroup_format, buffer = bufnr })
-	vim.api.nvim_create_autocmd("BufWritePre", {
-		group = augroup_format,
-		buffer = bufnr,
-		callback = function()
-			vim.lsp.buf.format({ bufnr = bufnr })
-		end,
-	})
+local typescript_setup, typescript = pcall(require, "typescript")
+if not typescript_setup then
+	return
 end
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-	local function buf_set_keymap(...)
-		vim.api.nvim_buf_set_keymap(bufnr, ...)
-	end
+	local opts = { noremap = true, silent = true, buffer = bufnr }
 
-	-- Mappings.
-	local opts = { noremap = true, silent = true }
-
-	-- See `:help vim.lsp.*` for documentation on any of the below functions
-	buf_set_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-	buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+	-- common
+	vim.keymap.set("n", "gh", "<Cmd>Lspsaga hover_doc<CR>", opts)
+	vim.keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+	vim.keymap.set("n", "gd", "<Cmd>Lspsaga lsp_finder<CR>", opts)
+	vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+	vim.keymap.set("n", "gp", "<Cmd>Lspsaga peek_definition<CR>", opts)
+	vim.keymap.set("n", "gr", "<Cmd>Lspsaga rename<CR>", opts)
+	vim.keymap.set("n", "ga", "<Cmd>Lspsaga code_action<CR>", opts)
+	vim.keymap.set("n", "gl", ":LspRestart<CR>", opts)
+	vim.keymap.set("n", "gs", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
+	vim.keymap.set("n", "gs", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
 
 	-- typescript
 	if client.name == "tsserver" then
@@ -43,48 +41,8 @@ local on_attach = function(client, bufnr)
 	end
 end
 
-protocol.CompletionItemKind = {
-	"", -- Text
-	"ƒ", -- Method
-	"", -- Function
-	"", -- Constructor
-	"", -- Field
-	"", -- Variable
-	"𝓒", -- Class
-	"", -- Interface
-	"", -- Module
-	"", -- Property
-	"", -- Unit
-	"", -- Value
-	"ℰ", -- Enum
-	"", -- Keyword
-	"﬌", -- Snippet
-	"", -- Color
-	"", -- File
-	"", -- Reference
-	"", -- Folder
-	"", -- EnumMember
-	"", -- Constant
-	"𝓢", -- Struct
-	"🗲", -- Event
-	"", -- Operator
-	"𝙏", -- TypeParameter
-}
-
--- Set up completion using nvim_cmp with LSP source
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-nvim_lsp.flow.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
-nvim_lsp.tsserver.setup({
-	on_attach = on_attach,
-	filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-	cmd = { "typescript-language-server", "--stdio" },
-	capabilities = capabilities,
-})
+-- 语言配置
+local capabilities = cmp_nvim_lsp.default_capabilities()
 
 typescript.setup({
 	server = {
@@ -93,48 +51,48 @@ typescript.setup({
 	},
 })
 
-nvim_lsp.sourcekit.setup({
-	on_attach = on_attach,
+lspconfig["cssls"].setup({
 	capabilities = capabilities,
+	on_attach = on_attach,
 })
 
-nvim_lsp.sumneko_lua.setup({
+lspconfig["tailwindcss"].setup({
 	capabilities = capabilities,
-	on_attach = function(client, bufnr)
-		on_attach(client, bufnr)
-		enable_format_on_save(client, bufnr)
-	end,
+	on_attach = on_attach,
+})
+
+lspconfig["emmet_ls"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+})
+
+lspconfig["sumneko_lua"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
 	settings = {
 		Lua = {
+			-- make the language server recognize "vim" global
 			diagnostics = {
-				-- Get the language server to recognize the `vim` global
 				globals = { "vim" },
 			},
-
 			workspace = {
-				-- Make the server aware of Neovim runtime files
-				library = vim.api.nvim_get_runtime_file("", true),
-				checkThirdParty = false,
+				-- make language server aware of runtime files
+				library = {
+					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+					[vim.fn.stdpath("config") .. "/lua"] = true,
+				},
 			},
 		},
 	},
 })
 
-nvim_lsp.tailwindcss.setup({
-	on_attach = on_attach,
+lspconfig["rust_analyzer"].setup({
 	capabilities = capabilities,
+	on_attach = on_attach,
 })
 
-nvim_lsp.cssls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
-nvim_lsp.astro.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
+-- 其他配置
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 	underline = true,
 	update_in_insert = false,
@@ -142,7 +100,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 	severity_sort = true,
 })
 
--- Diagnostic symbols in the sign column (gutter)
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
@@ -155,6 +112,6 @@ vim.diagnostic.config({
 	},
 	update_in_insert = true,
 	float = {
-		source = "always", -- Or "if_many"
+		source = "always",
 	},
 })
