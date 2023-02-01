@@ -32,6 +32,7 @@ treesitter.setup({
 		"lua",
 		"vim",
 		"gitignore",
+		"rust",
 	},
 	context_commentstring = {
 		enable = true,
