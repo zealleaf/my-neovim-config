@@ -15,6 +15,7 @@ null_ls.setup({
 	sources = {
 		formatting.stylua, -- lua formatter
 		formatting.prettierd, -- js/ts formatter
+		formatting.rustfmt, -- rust formatter
 		diagnostics.eslint.with({
 			condition = function(utils)
 				return utils.root_has_file({

@@ -44,6 +44,7 @@ mason_null_ls.setup({
 	ensure_installed = {
 		"stylua",
 		"prettierd",
+		"rustfmt",
 		"eslint_d",
 	},
 	automatic_installation = true,
