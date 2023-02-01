@@ -90,6 +90,13 @@ lspconfig["sumneko_lua"].setup({
 lspconfig["rust_analyzer"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
+	settings = {
+		["rust-analyzer"] = {
+			checkOnSave = {
+				-- command = "clippy",
+			},
+		},
+	},
 })
 
 -- 其他配置
