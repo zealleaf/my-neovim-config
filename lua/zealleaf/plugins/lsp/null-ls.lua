@@ -16,7 +16,7 @@ null_ls.setup({
 		formatting.stylua, -- lua formatter
 		formatting.prettier, -- js/ts formatter
 		formatting.rustfmt, -- rust formatter
-		diagnostics.eslint.with({
+		formatting.eslint_d.with({
 			condition = function(utils)
 				return utils.root_has_file({
 					".eslintrc",
@@ -28,7 +28,7 @@ null_ls.setup({
 				})
 			end,
 		}),
-		formatting.eslint.with({
+		diagnostics.eslint_d.with({
 			condition = function(utils)
 				return utils.root_has_file({
 					".eslintrc",
