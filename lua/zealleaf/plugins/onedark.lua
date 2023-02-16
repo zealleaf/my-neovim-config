@@ -40,6 +40,7 @@ local colors = {
 
 onedark.setup({
 	style = "darker",
+	transparent = true,
 	diagnostics = {
 		darker = true, -- darker colors for diagnostic
 		undercurl = true, -- use undercurl instead of underline for diagnostics
