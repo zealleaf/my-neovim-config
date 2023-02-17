@@ -45,10 +45,10 @@ bufferline.setup({
 	},
 })
 
-vim.keymap.set("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", {})
-vim.keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", {})
-vim.keymap.set("n", "<Tab>p", ":BufferLinePick<CR>")
-vim.keymap.set("n", "<Tab>c", ":BufferLinePickClose<CR>")
-vim.keymap.set("n", "<Tab>l", ":BufferLineCloseRight<CR>")
-vim.keymap.set("n", "<Tab>h", ":BufferLineCloseLeft<CR>")
+-- vim.keymap.set("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", {})
+-- vim.keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", {})
+-- vim.keymap.set("n", "<Tab>p", ":BufferLinePick<CR>")
+-- vim.keymap.set("n", "<Tab>c", ":BufferLinePickClose<CR>")
+-- vim.keymap.set("n", "<Tab>l", ":BufferLineCloseRight<CR>")
+-- vim.keymap.set("n", "<Tab>h", ":BufferLineCloseLeft<CR>")
 vim.keymap.set("n", "<Tab>k", ":Bdelete!<CR>")
