@@ -36,6 +36,7 @@ mason_lspconfig.setup({
 		"tailwindcss",
 		"tsserver",
 		"volar",
+		"svelte",
 	},
 	automatic_installation = true,
 })

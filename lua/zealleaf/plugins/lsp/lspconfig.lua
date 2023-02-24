@@ -51,6 +51,16 @@ typescript.setup({
 	},
 })
 
+lspconfig["volar"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+lspconfig["svelte"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
 lspconfig["cssls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
@@ -61,11 +71,11 @@ lspconfig["tailwindcss"].setup({
 	on_attach = on_attach,
 })
 
--- lspconfig["emmet_ls"].setup({
--- 	capabilities = capabilities,
--- 	on_attach = on_attach,
--- 	filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
--- })
+lspconfig["emmet_ls"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	filetypes = { "html" },
+})
 
 lspconfig["sumneko_lua"].setup({
 	capabilities = capabilities,
