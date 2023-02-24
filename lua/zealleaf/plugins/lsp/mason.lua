@@ -44,7 +44,7 @@ mason_lspconfig.setup({
 mason_null_ls.setup({
 	ensure_installed = {
 		"stylua",
-		"prettier",
+		"prettierd",
 		"rustfmt",
 		"eslint_d",
 	},

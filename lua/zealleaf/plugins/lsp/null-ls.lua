@@ -14,7 +14,7 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
 	sources = {
 		formatting.stylua, -- lua formatter
-		formatting.prettier, -- js/ts formatter
+		formatting.prettierd, -- js/ts formatter
 		formatting.rustfmt, -- rust formatter
 		formatting.eslint_d.with({
 			condition = function(utils)
