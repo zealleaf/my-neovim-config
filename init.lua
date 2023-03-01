@@ -6,10 +6,11 @@ require("zealleaf.core.keymaps-base")
 require("zealleaf.core.keymaps-plugin")
 
 -- 主题设置
-require("zealleaf.core.colorscheme")
 -- require("zealleaf.plugins.github-theme")
 -- require("zealleaf.plugins.neosolarized")
-require("zealleaf.plugins.onedark")
+-- require("zealleaf.plugins.onedark")
+require("zealleaf.plugins.tokyonight")
+require("zealleaf.core.colorscheme")
 
 -- LSP
 require("zealleaf.plugins.lsp.lspcolors")
