@@ -43,8 +43,8 @@ keymap.set("n", "sx", "<C-w>c", opt)
 keymap.set("n", "so", "<C-w>o", opt) -- close others
 keymap.set("n", "s;", ":vertical resize +10<CR>", opt)
 keymap.set("n", "s'", ":vertical resize -10<CR>", opt)
-keymap.set("n", "s[", ":resize +10<CR>", opt)
-keymap.set("n", "s/", ":resize -10<CR>", opt)
+keymap.set("n", "s[", ":resize -10<CR>", opt)
+keymap.set("n", "s/", ":resize +10<CR>", opt)
 keymap.set("n", "s=", "<C-w>=", opt)
 
 -- Turn off paste mode when leaving insert
