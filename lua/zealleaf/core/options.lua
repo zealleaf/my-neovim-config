@@ -3,7 +3,7 @@ vim.o.timeoutlen = 223
 local opt = vim.opt -- for conciseness
 
 -- line numbers
--- opt.relativenumber = true -- show relative line numbers
+opt.relativenumber = true -- show relative line numbers
 opt.number = true -- shows absolute line number on cursor line (when relative number is on)
 
 -- tabs & indentation
@@ -23,7 +23,6 @@ opt.smartcase = true -- if you include mixed case in your search, assumes you wa
 opt.cursorline = true -- highlight the current cursor line
 
 -- appearance
-
 -- turn on termguicolors for nightfly colorscheme to work
 -- (have to use iterm2 or any other true color terminal)
 opt.termguicolors = true
