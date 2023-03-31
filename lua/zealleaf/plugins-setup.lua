@@ -1,4 +1,6 @@
+--[[
 -- neovim 插件管理器
+--]]
 
 -- 如果没有安装就自动安装
 local ensure_packer = function()

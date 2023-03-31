@@ -8,9 +8,6 @@ if not status then
 end
 
 saga.setup({
-	definition = {
-		edit = "<CR>",
-	},
 	ui = {
 		winblend = 10,
 		border = "rounded",
