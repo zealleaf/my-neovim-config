@@ -1,28 +1,16 @@
---[[
 -- neovim 插件管理器
---]]
-
--- 如果没有安装就自动安装
-local ensure_packer = function()
-	local fn = vim.fn
-	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-	if fn.empty(fn.glob(install_path)) > 0 then
-		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
-		vim.cmd([[packadd packer.nvim]])
-		return true
-	end
-	return false
-end
-
-local packer_bootstrap = ensure_packer() -- true if packer was just installed
 
 local status, packer = pcall(require, "packer")
+
 if not status then
+	print("Packer is not installed")
 	return
 end
 
+vim.cmd([[packadd packer.nvim]])
+
 -- 插件列表
-return packer.startup(function(use)
+packer.startup(function(use)
 	-- 包管理器
 	use("wbthomason/packer.nvim")
 
@@ -30,6 +18,10 @@ return packer.startup(function(use)
 	use("nvim-lua/plenary.nvim")
 
 	-- 主题
+	use({
+		"svrana/neosolarized.nvim",
+		requires = { "tjdevries/colorbuddy.nvim" },
+	})
 	use("folke/tokyonight.nvim")
 	use({
 		"catppuccin/nvim",
@@ -164,8 +156,4 @@ return packer.startup(function(use)
 			require("pretty-fold").setup()
 		end,
 	})
-
-	if packer_bootstrap then
-		require("packer").sync()
-	end
 end)

@@ -4,6 +4,6 @@ if not status then
 end
 
 githubTheme.setup({
-	theme_style = "dimmed",
-	-- keyword_style = "NONE",
+	theme_style = "Dimmed",
+	-- transparent = true,
 })

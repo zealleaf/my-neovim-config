@@ -32,7 +32,7 @@ mason_lspconfig.setup({
 		"emmet_ls",
 		"html",
 		"rust_analyzer",
-		"sumneko_lua",
+		"lua_ls",
 		"tailwindcss",
 		"tsserver",
 		"volar",

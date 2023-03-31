@@ -88,7 +88,7 @@ lspconfig["emmet_ls"].setup({
 	filetypes = { "html" },
 })
 
-lspconfig["sumneko_lua"].setup({
+lspconfig["lua_ls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 	settings = {
