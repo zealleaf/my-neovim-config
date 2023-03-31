@@ -1,16 +1,26 @@
 -- neovim 插件管理器
 
-local status, packer = pcall(require, "packer")
+-- 如果没有安装就自动安装
+local ensure_packer = function()
+	local fn = vim.fn
+	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+	if fn.empty(fn.glob(install_path)) > 0 then
+		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+		vim.cmd([[packadd packer.nvim]])
+		return true
+	end
+	return false
+end
 
+local packer_bootstrap = ensure_packer()
+
+local status, packer = pcall(require, "packer")
 if not status then
-	print("Packer is not installed")
 	return
 end
 
-vim.cmd([[packadd packer.nvim]])
-
 -- 插件列表
-packer.startup(function(use)
+return packer.startup(function(use)
 	-- 包管理器
 	use("wbthomason/packer.nvim")
 
@@ -32,6 +42,7 @@ packer.startup(function(use)
 	use("navarasu/onedark.nvim")
 	use("pineapplegiant/spaceduck")
 	use("arcticicestudio/nord-vim")
+	use("Mofiqul/dracula.nvim")
 
 	-- tmux相关
 	use("christoomey/vim-tmux-navigator")
@@ -156,4 +167,8 @@ packer.startup(function(use)
 			require("pretty-fold").setup()
 		end,
 	})
+
+	if packer_bootstrap then
+		require("packer").sync()
+	end
 end)
