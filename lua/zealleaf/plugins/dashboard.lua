@@ -38,7 +38,7 @@ dashboard.setup({
 		center = {
 			{
 				icon = "                       ",
-				desc = "Open Projects                       ",
+				desc = "Open projects                       ",
 				action = "Telescope projects",
 			},
 			{
@@ -51,11 +51,11 @@ dashboard.setup({
 				desc = "Run current                         ",
 				action = "ene!",
 			},
-			{
-				icon = "                       ",
-				desc = "Find Text                           ",
-				action = "Telescope live_grep",
-			},
+			-- {
+			-- 	icon = "                       ",
+			-- 	desc = "Find Text                           ",
+			-- 	action = "Telescope live_grep",
+			-- },
 			{
 				icon = "                       ",
 				desc = "Edit keybindings                    ",
