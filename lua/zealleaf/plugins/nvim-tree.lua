@@ -32,11 +32,12 @@ nvimtree.setup({
 			window_picker = {
 				enable = false,
 			},
+			quit_on_open = true,
 		},
 	},
 	view = {
 		side = "right",
-		width = 30,
+		width = 50,
 		mappings = {
 			custom_only = true,
 			list = {
@@ -45,7 +46,7 @@ nvimtree.setup({
 				-- 打开or 编辑文件
 				{ key = { "o", "<2-LeftMouse>" }, action = "edit" },
 				{ key = "so", action = "system_open" },
-				{ key = "<CR>", action = "open" },
+				{ key = "<CR>", action = "edit" },
 				-- 垂直分屏打开文件, 用水平线分割
 				{ key = "sh", action = "vsplit" },
 				-- 水平分屏打开文件, 用垂线分割
