@@ -80,6 +80,15 @@ lspconfig["cssls"].setup({
 lspconfig["tailwindcss"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
+	settings = {
+		tailwindCSS = {
+			experimental = {
+				classRegex = {
+					{ "cx|cva|clsx\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+				},
+			},
+		},
+	},
 })
 
 lspconfig["emmet_ls"].setup({
