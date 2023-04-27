@@ -80,6 +80,7 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-buffer") -- source for text in buffer
 	use("hrsh7th/cmp-path") -- source for file system paths
 	use("hrsh7th/cmp-nvim-lsp") -- nvim-cmp source for neovim's built-in LSP
+	use("hrsh7th/cmp-cmdline")
 
 	-- 语言服务协议提供
 	use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters

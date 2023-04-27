@@ -31,6 +31,7 @@ treesitter.setup({
 		"vim",
 		"gitignore",
 		"rust",
+		"vue",
 	},
 	context_commentstring = {
 		enable = true,
