@@ -85,7 +85,7 @@ lspconfig["tailwindcss"].setup({
 		tailwindCSS = {
 			experimental = {
 				classRegex = {
-					{ "class|className|cx|cva|clsx\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+					{ "class|className|cn|cva|clsx\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
 				},
 			},
 		},
