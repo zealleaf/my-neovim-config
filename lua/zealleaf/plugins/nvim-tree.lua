@@ -110,6 +110,7 @@ local function on_attach(bufnr)
 	vim.keymap.set("n", "zc", api.tree.collapse_all, opts("Collapse"))
 	vim.keymap.set("n", "zo", api.tree.expand_all, opts("Expand All"))
 	vim.keymap.set("n", "b", api.tree.toggle_no_buffer_filter, opts("Toggle No Buffer"))
+	vim.keymap.set("n", "g", api.tree.toggle_git_clean_filter, opts("Toggle Git Clean"))
 end
 
 -- import nvim-tree plugin safely
