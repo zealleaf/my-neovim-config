@@ -10,7 +10,8 @@ require("zealleaf.core.keymaps-plugin")
 -- require("zealleaf.plugins.tokyonight")
 -- require("zealleaf.plugins.github-theme")
 -- require("zealleaf.plugins.neosolarized")
-require("zealleaf.plugins.dracula")
+-- require("zealleaf.plugins.dracula")
+require("zealleaf.plugins.catppuccin")
 
 -- LSP
 require("zealleaf.plugins.lsp.lspcolors")
