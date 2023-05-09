@@ -6,7 +6,7 @@ vim.g.mapleader = ";"
 local keymap = vim.keymap
 
 -- vim-maximizer
-keymap.set("n", "<leader>x", ":MaximizerToggle<CR>") -- toggle split window maximization
+keymap.set("n", "<leader>m", ":MaximizerToggle<CR>") -- toggle split window maximization
 
 -- hop
 keymap.set("n", "<leader>wi", ":HopPattern<CR>")
