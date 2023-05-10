@@ -32,3 +32,10 @@ keymap.set("n", "<leader>r", '<cmd>lua require("spectre").open_file_search({sele
 
 --telescope
 keymap.set("n", "<leader>te", ":Telescope emoji<CR>")
+
+--gitsigns
+keymap.set("n", "<leader>gn", "<cmd>Gitsigns next_hunk<CR>")
+keymap.set("n", "<leader>gp", "<cmd>Gitsigns prev_hunk<CR>")
+keymap.set("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>")
+keymap.set("n", "<leader>gd", "<cmd>GitDiff<CR>")
+keymap.set("n", "<leader>gdc", "<cmd>GitDiffClose<CR>")

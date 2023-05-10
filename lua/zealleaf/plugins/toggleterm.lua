@@ -64,7 +64,6 @@ local tb = Terminal:new({
 	direction = "vertical",
 	close_on_exit = true,
 })
-
 local tc = Terminal:new({
 	direction = "horizontal",
 	close_on_exit = true,
@@ -110,7 +109,7 @@ local mapToggleTerm = function(tt)
 	vim.keymap.set({ "n", "t" }, "<leader>ta", tt.toggleA)
 	vim.keymap.set({ "n", "t" }, "<leader>ts", tt.toggleB)
 	vim.keymap.set({ "n", "t" }, "<leader>td", tt.toggleC)
-	vim.keymap.set({ "n", "t" }, "<leader>g", tt.toggleG)
+	vim.keymap.set({ "n", "t" }, "<leader>l", tt.toggleG)
 end
 
 mapToggleTerm(M)
