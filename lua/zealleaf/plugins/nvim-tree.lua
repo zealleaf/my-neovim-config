@@ -22,7 +22,7 @@ local function on_attach(bufnr)
 		return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
 	end
 
-	-- BEGIN_DEFAULT_ON_ATTACH
+	-- BEGIN_DEFAULT_ON_ATTACH ----------------------------------------------------------
 	vim.keymap.set("n", "<C-]>", api.tree.change_root_to_node, opts("CD"))
 	vim.keymap.set("n", "<C-e>", api.node.open.replace_tree_buffer, opts("Open: In Place"))
 	vim.keymap.set("n", "<C-k>", api.node.show_info_popup, opts("Info"))
@@ -75,7 +75,7 @@ local function on_attach(bufnr)
 	vim.keymap.set("n", "Y", api.fs.copy.relative_path, opts("Copy Relative Path"))
 	vim.keymap.set("n", "<2-LeftMouse>", api.node.open.edit, opts("Open"))
 	vim.keymap.set("n", "<2-RightMouse>", api.tree.change_root_to_node, opts("CD"))
-	-- END_DEFAULT_ON_ATTACH
+	-- END_DEFAULT_ON_ATTACH ------------------------------------------------------------
 
 	-- Default mappings not inserted as:
 	--  remove_keymaps = true
@@ -109,8 +109,9 @@ local function on_attach(bufnr)
 	vim.keymap.set("n", "[", api.tree.change_root_to_parent, opts("Up"))
 	vim.keymap.set("n", "zc", api.tree.collapse_all, opts("Collapse"))
 	vim.keymap.set("n", "zo", api.tree.expand_all, opts("Expand All"))
-	vim.keymap.set("n", "b", api.tree.toggle_no_buffer_filter, opts("Toggle No Buffer"))
-	vim.keymap.set("n", "g", api.tree.toggle_git_clean_filter, opts("Toggle Git Clean"))
+	vim.keymap.set("n", "fb", api.tree.toggle_no_buffer_filter, opts("Toggle No Buffer"))
+	vim.keymap.set("n", "fg", api.tree.toggle_git_clean_filter, opts("Toggle Git Clean"))
+	vim.keymap.set("n", "<Tab>", api.node.open.preview, opts("Open Preview"))
 end
 
 -- import nvim-tree plugin safely
