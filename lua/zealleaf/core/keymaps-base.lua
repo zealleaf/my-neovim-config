@@ -10,8 +10,10 @@ local opt = {
 }
 keymap.set("n", "s", ":w!<CR>", opt)
 keymap.set("n", "ss", ":wa!<CR>", opt)
-keymap.set("n", "q", ":q!<CR>", opt)
-keymap.set("n", "qq", ":qa!<CR>", opt)
+-- keymap.set("n", "q", ":q!<CR>", opt)
+-- keymap.set("n", "qq", ":qa!<CR>", opt)
+keymap.set("n", "q", "", opt)
+keymap.set("n", "<C-q>", ":qa!<CR>", opt)
 -- use <C-Spa> to exit insert mode
 keymap.set("n", "J", "", opt)
 keymap.set("n", "H", "^")

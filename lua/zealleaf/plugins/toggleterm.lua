@@ -38,10 +38,9 @@ local lazygit = Terminal:new({
 	},
 	on_open = function(term)
 		vim.cmd("startinsert!")
-		-- q / <leader>tg 关闭 terminal
+		-- q关闭terminal
 		vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
-		vim.api.nvim_buf_set_keymap(term.bufnr, "n", "<leader>tg", "<cmd>close<CR>", { noremap = true, silent = true })
-		-- ESC 键取消，留给lazygit
+		-- ESC键取消，留给lazygit
 		if vim.fn.mapcheck("<Esc>", "t") ~= "" then
 			vim.api.nvim_del_keymap("t", "<Esc>")
 		end

@@ -33,24 +33,24 @@ telescope.setup({
 			theme = "dropdown",
 			-- disables netrw and use telescope-file-browser in its place
 			hijack_netrw = true,
-			mappings = {
-				-- your custom insert mode mappings
-				["i"] = {
-					["<C-k>"] = actions.move_selection_previous, -- move to prev result
-					["<C-j>"] = actions.move_selection_next, -- move to next result
-					["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist, -- send selected to quickfixlist
-					["<C-w>"] = function()
-						vim.cmd("normal vbd")
-					end, -- clear
-				},
-				["n"] = {
-					["a"] = fb_actions.create,
-					["h"] = fb_actions.goto_parent_dir,
-					["/"] = function()
-						vim.cmd("startinsert")
-					end,
-				},
-			},
+			-- mappings = {
+			-- 	-- your custom insert mode mappings
+			-- 	["i"] = {
+			-- 		["<C-k>"] = actions.move_selection_previous, -- move to prev result
+			-- 		["<C-j>"] = actions.move_selection_next, -- move to next result
+			-- 		["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist, -- send selected to quickfixlist
+			-- 		["<C-w>"] = function()
+			-- 			vim.cmd("normal vbd")
+			-- 		end, -- clear
+			-- 	},
+			-- 	["n"] = {
+			-- 		["a"] = fb_actions.create,
+			-- 		["h"] = fb_actions.goto_parent_dir,
+			-- 		["/"] = function()
+			-- 			vim.cmd("startinsert")
+			-- 		end,
+			-- 	},
+			-- },
 		},
 		emoji = {
 			action = function(emoji)
