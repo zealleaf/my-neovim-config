@@ -12,7 +12,7 @@ keymap.set("n", "s", ":w!<CR>", opt)
 keymap.set("n", "ss", ":wa!<CR>", opt)
 -- keymap.set("n", "q", ":q!<CR>", opt)
 -- keymap.set("n", "qq", ":qa!<CR>", opt)
-keymap.set("n", "q", "", opt)
+keymap.set("n", "q", "<C-w>c", opt)
 keymap.set("n", "<C-q>", ":qa!<CR>", opt)
 -- use <C-Spa> to exit insert mode
 keymap.set("n", "J", "", opt)
@@ -41,7 +41,7 @@ keymap.set("n", "<leader>x", "<C-x>") -- decrement
 -- window management
 keymap.set("n", "sh", ":vsp<CR>", opt)
 keymap.set("n", "sv", ":sp<CR>", opt)
-keymap.set("n", "sx", "<C-w>c", opt)
+keymap.set("n", "sc", "<C-w>c", opt)
 keymap.set("n", "so", "<C-w>o", opt) -- close others
 keymap.set("n", "s;", ":vertical resize -10<CR>", opt)
 keymap.set("n", "s'", ":vertical resize +10<CR>", opt)
