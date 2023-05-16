@@ -41,7 +41,7 @@ keymap.set("n", "<leader>x", "<C-x>") -- decrement
 -- window management
 keymap.set("n", "sh", ":vsp<CR>", opt)
 keymap.set("n", "sv", ":sp<CR>", opt)
-keymap.set("n", "sc", "<C-w>c", opt)
+keymap.set("n", "sx", "<C-w>c", opt)
 keymap.set("n", "so", "<C-w>o", opt) -- close others
 keymap.set("n", "s;", ":vertical resize -10<CR>", opt)
 keymap.set("n", "s'", ":vertical resize +10<CR>", opt)
