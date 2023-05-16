@@ -30,9 +30,6 @@ keymap.set("n", "<leader>r", '<cmd>lua require("spectre").open_file_search({sele
 	desc = "Search on current file",
 })
 
---telescope
-keymap.set("n", "<leader>te", ":Telescope emoji<CR>")
-
 --gitsigns
 keymap.set("n", "<leader>gn", "<cmd>Gitsigns next_hunk<CR>")
 keymap.set("n", "<leader>gp", "<cmd>Gitsigns prev_hunk<CR>")

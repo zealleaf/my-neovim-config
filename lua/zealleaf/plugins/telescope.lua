@@ -79,9 +79,9 @@ end)
 vim.keymap.set("n", "<leader>s", function()
 	builtin.live_grep()
 end)
--- vim.keymap.set("n", "<leader>b", function()
--- 	builtin.buffers()
--- end)
+vim.keymap.set("n", "<leader>b", function()
+	builtin.buffers()
+end)
 vim.keymap.set("n", "<leader>h", function()
 	builtin.help_tags()
 end)
@@ -91,17 +91,20 @@ end)
 vim.keymap.set("n", "<leader>d", function()
 	builtin.diagnostics()
 end)
-vim.keymap.set("n", "<leader>b", function()
-	telescope.extensions.file_browser.file_browser({
-		path = "%:p:h",
-		cwd = telescope_buffer_dir(),
-		respect_gitignore = false,
-		hidden = true,
-		grouped = true,
-		previewer = false,
-		initial_mode = "normal",
-		layout_config = {
-			height = 40,
-		},
-	})
-end)
+
+vim.keymap.set("n", "<leader>te", ":Telescope emoji<CR>")
+
+-- vim.keymap.set("n", "<leader>b", function()
+-- 	telescope.extensions.file_browser.file_browser({
+-- 		path = "%:p:h",
+-- 		cwd = telescope_buffer_dir(),
+-- 		respect_gitignore = false,
+-- 		hidden = true,
+-- 		grouped = true,
+-- 		previewer = false,
+-- 		initial_mode = "normal",
+-- 		layout_config = {
+-- 			height = 40,
+-- 		},
+-- 	})
+-- end)
