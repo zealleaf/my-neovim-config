@@ -148,7 +148,7 @@ nvimtree.setup({
 			window_picker = {
 				enable = false,
 			},
-			quit_on_open = true,
+			quit_on_open = false,
 		},
 	},
 	on_attach = on_attach,
