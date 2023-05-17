@@ -4,7 +4,7 @@ if not status then
 end
 
 dashboard.setup({
-	theme = "doom",
+	theme = "hyper",
 	config = {
 		header = {
 			[[]],
@@ -35,38 +35,24 @@ dashboard.setup({
 			[[]],
 			[[]],
 		},
-		center = {
+		shortcut = {
 			{
-				icon = "                       ",
-				desc = "Open projects                       ",
+				desc = " Open projects",
 				action = "Telescope projects",
+				key = "o",
 			},
 			{
-				icon = "                       ",
-				desc = "Recent files                        ",
-				action = "Telescope oldfiles",
-			},
-			{
-				icon = "                       ",
-				desc = "Run current                         ",
+				desc = "  Run current",
 				action = "ene!",
-			},
-			-- {
-			-- 	icon = "                       ",
-			-- 	desc = "Find Text                           ",
-			-- 	action = "Telescope live_grep",
-			-- },
-			{
-				icon = "                       ",
-				desc = "Edit keybindings                    ",
-				action = "edit ~/.config/nvim/lua/zealleaf/core/keymaps-base.lua",
+				key = "r",
 			},
 			{
-				icon = "                       ",
-				desc = "Edit projects history               ",
-				action = "edit ~/.local/share/nvim/project_nvim/project_history",
+				desc = " Edit dotfiles",
+				action = "edit ~/.config/nvim/lua/zealleaf/init.lua",
+				key = "e",
 			},
 		},
+		packages = { enable = false },
 		footer = {
 			[[]],
 			[[]],
