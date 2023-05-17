@@ -39,17 +39,17 @@ dashboard.setup({
 			{
 				desc = " Open projects",
 				action = "Telescope projects",
-				key = "o",
+				key = "p",
 			},
 			{
 				desc = "  Run current",
 				action = "ene!",
-				key = "r",
+				key = "c",
 			},
 			{
 				desc = " Edit dotfiles",
-				action = "edit ~/.config/nvim/lua/zealleaf/init.lua",
-				key = "e",
+				action = "edit ~/.config/nvim/init.lua",
+				key = "d",
 			},
 		},
 		packages = { enable = false },
