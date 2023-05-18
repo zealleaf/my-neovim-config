@@ -133,7 +133,11 @@ require("spectre").setup({
 	replace_engine = {
 		["sed"] = {
 			cmd = "sed",
-			args = nil,
+			args = {
+				"-i",
+				"",
+				"-E",
+			},
 			options = {
 				["ignore-case"] = {
 					value = "--ignore-case",
@@ -159,7 +163,6 @@ require("spectre").setup({
 		find = {
 			--pick one of item in find_engine
 			cmd = "rg",
-			options = { "ignore-case" },
 		},
 		replace = {
 			--pick one of item in replace_engine
