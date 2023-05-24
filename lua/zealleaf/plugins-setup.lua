@@ -1,8 +1,6 @@
 --[[
 -- neovim 插件管理器
 --]]
-
--- 如果没有安装就自动安装
 local ensure_packer = function()
 	local fn = vim.fn
 	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
@@ -53,7 +51,7 @@ return packer.startup(function(use)
 	use("szw/vim-maximizer")
 
 	-- vim-surround操作
-	use("tpope/vim-surround") -- add, delete, change surroundings (it's awesome)
+	use("tpope/vim-surround")
 
 	-- 注释
 	use("numToStr/Comment.nvim")
@@ -75,7 +73,7 @@ return packer.startup(function(use)
 	use("nvim-telescope/telescope-file-browser.nvim")
 	use("xiyaowong/telescope-emoji.nvim")
 
-	-- 自动完成、提示等
+	-- 自动完成、提示
 	use("hrsh7th/nvim-cmp") -- completion plugin
 	use("hrsh7th/cmp-buffer") -- source for text in buffer
 	use("hrsh7th/cmp-path") -- source for file system paths
@@ -128,7 +126,7 @@ return packer.startup(function(use)
 		after = "nvim-treesitter",
 	})
 
-	-- git整合
+	-- git相关
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 	use("dinhhuy258/git.nvim") -- For git blame & browse
 
@@ -157,7 +155,7 @@ return packer.startup(function(use)
 	-- 搜索与替换
 	use({ "windwp/nvim-spectre" })
 
-	-- 文件大纲
+	-- 代码大纲
 	use({
 		"mxsdev/symbols-outline.nvim",
 		branch = "merge-jsx-tree",
