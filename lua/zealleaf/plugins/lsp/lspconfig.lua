@@ -75,6 +75,7 @@ lspconfig["cssls"].setup({
 			unknownAtRules = "ignore",
 		} },
 	},
+	filetypes = { "css", "scss", "less", "html", "vue" },
 })
 
 lspconfig["tailwindcss"].setup({
