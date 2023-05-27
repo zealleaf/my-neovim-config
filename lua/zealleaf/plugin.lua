@@ -29,7 +29,9 @@ require("lazy").setup({
 	lazy = true,
 	checker = {
 		enabled = true,
+		concurrency = nil,
 		notify = true,
+		frequency = 3600 * 24 * 7,
 	},
 	performance = {
 		cache = {
