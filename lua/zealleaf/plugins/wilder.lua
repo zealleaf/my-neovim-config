@@ -1,6 +1,25 @@
-local setup, wilder = pcall(require, "wilder")
-if not setup then
-	return
-end
+return {
+	"gelguy/wilder.nvim",
 
-wilder.setup({modes = {':', '/', '?'}})
+	config = function()
+		local wilder = require("wilder")
+		wilder.setup({
+			modes = { ":", "/", "?" },
+			next_key = "<C-j>",
+			previous_key = "<C-k>",
+			accept_key = "<Down>",
+			reject_key = "<Up>",
+		})
+		wilder.set_option(
+			"renderer",
+			wilder.renderer_mux({
+				[":"] = wilder.popupmenu_renderer({
+					highlighter = wilder.basic_highlighter(),
+				}),
+				["/"] = wilder.wildmenu_renderer({
+					highlighter = wilder.basic_highlighter(),
+				}),
+			})
+		)
+	end,
+}
