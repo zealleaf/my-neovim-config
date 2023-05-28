@@ -1,7 +1,6 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-		cmd = "Telescope",
 		dependencies = { "xiyaowong/telescope-emoji.nvim", "nvim-lua/plenary.nvim" },
 		config = function()
 			local telescope = require("telescope")

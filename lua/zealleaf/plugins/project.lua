@@ -1,5 +1,6 @@
 return {
 	"ahmedkhalf/project.nvim",
+	event = "VimEnter",
 	config = function()
 		local telescope = require("telescope")
 		pcall(telescope.load_extension, "projects")
