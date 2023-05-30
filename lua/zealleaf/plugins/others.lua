@@ -1,7 +1,8 @@
 return {
-	{ "nvim-lua/plenary.nvim" },
 	{ "szw/vim-maximizer" },
 	{ "tpope/vim-surround" },
+	{ "christoomey/vim-tmux-navigator" },
+	{ "gpanders/editorconfig.nvim" },
 	{
 		"iamcco/markdown-preview.nvim",
 		ft = { "markdown" },
@@ -9,9 +10,4 @@ return {
 			vim.fn["mkdp#util#install"]()
 		end,
 	},
-	{ "gpanders/editorconfig.nvim" },
-	{ "L3MON4D3/LuaSnip" },
-	{ "saadparwaiz1/cmp_luasnip" },
-	{ "rafamadriz/friendly-snippets" },
-	{ "christoomey/vim-tmux-navigator" },
 }

@@ -5,6 +5,11 @@ return {
 			"hrsh7th/cmp-buffer", -- source for text in buffer
 			"hrsh7th/cmp-path", -- source for file system paths
 			"hrsh7th/cmp-nvim-lsp", -- nvim-cmp source for neovim's built-in LSP
+			"saadparwaiz1/cmp_luasnip",
+			{
+				"L3MON4D3/LuaSnip",
+				dependencies = { "rafamadriz/friendly-snippets" },
+			},
 		},
 		config = function()
 			local cmp = require("cmp")
