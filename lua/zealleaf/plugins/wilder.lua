@@ -16,7 +16,10 @@ return {
 				[":"] = wilder.popupmenu_renderer({
 					highlighter = wilder.basic_highlighter(),
 				}),
-				["/"] = wilder.wildmenu_renderer({
+				["/"] = wilder.popupmenu_renderer({
+					highlighter = wilder.basic_highlighter(),
+				}),
+				["?"] = wilder.popupmenu_renderer({
 					highlighter = wilder.basic_highlighter(),
 				}),
 			})
