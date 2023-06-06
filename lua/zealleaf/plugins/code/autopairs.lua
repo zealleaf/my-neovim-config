@@ -1,11 +1,13 @@
 return {
 	{
 		"windwp/nvim-ts-autotag",
+		event = "VeryLazy",
 		after = "nvim-treesitter",
 	},
 	{
 		"windwp/nvim-autopairs",
 		dependencies = { "hrsh7th/nvim-cmp" },
+		event = "VeryLazy",
 		config = function()
 			local autopairs = require("nvim-autopairs")
 

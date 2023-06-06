@@ -1,8 +1,8 @@
 return {
-	{ "szw/vim-maximizer" },
-	{ "tpope/vim-surround" },
-	{ "christoomey/vim-tmux-navigator" },
-	{ "gpanders/editorconfig.nvim" },
+	{ "szw/vim-maximizer", event = "VeryLazy" },
+	{ "tpope/vim-surround", event = "VeryLazy" },
+	{ "christoomey/vim-tmux-navigator", event = "VeryLazy" },
+	{ "gpanders/editorconfig.nvim", event = "VeryLazy" },
 	{
 		"iamcco/markdown-preview.nvim",
 		ft = { "markdown" },

@@ -11,6 +11,7 @@ return {
 				dependencies = { "rafamadriz/friendly-snippets" },
 			},
 		},
+		event = "VeryLazy",
 		config = function()
 			local cmp = require("cmp")
 
