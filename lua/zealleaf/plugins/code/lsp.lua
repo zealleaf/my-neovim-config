@@ -1,5 +1,5 @@
 return {
-	-- tools
+	-- mason
 	{
 		"williamboman/mason.nvim",
 		dependencies = { "williamboman/mason-lspconfig.nvim", "jayp0521/mason-null-ls.nvim" },
@@ -25,6 +25,7 @@ return {
 					"tsserver",
 					"volar",
 					"svelte",
+					"astro",
 				},
 				automatic_installation = true,
 			})
@@ -206,6 +207,11 @@ return {
 					capabilities = capabilities,
 					on_attach = on_attach,
 				},
+			})
+
+			lspconfig["astro"].setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
 			})
 
 			lspconfig["volar"].setup({

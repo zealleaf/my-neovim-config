@@ -23,6 +23,7 @@ return {
 				"rust",
 				"vue",
 				"diff",
+				"astro",
 			},
 			sync_install = true,
 			auto_install = true,
