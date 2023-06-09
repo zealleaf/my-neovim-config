@@ -60,8 +60,10 @@ return {
 			null_ls.setup({
 				sources = {
 					formatting.stylua, -- lua formatter
-					formatting.prettierd, -- js/ts formatter
-					formatting.rustfmt, -- rust formatter
+					formatting.rustfmt,
+					formatting.prettierd.with({
+						extra_filetypes = { "astro" },
+					}),
 					formatting.eslint_d.with({
 						condition = function(utils)
 							return utils.root_has_file({
