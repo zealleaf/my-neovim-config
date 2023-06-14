@@ -26,6 +26,7 @@ return {
 					"volar",
 					"svelte",
 					"astro",
+					"marksman",
 				},
 				automatic_installation = true,
 			})
@@ -209,6 +210,11 @@ return {
 					capabilities = capabilities,
 					on_attach = on_attach,
 				},
+			})
+
+			lspconfig["marksman"].setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
 			})
 
 			lspconfig["astro"].setup({
