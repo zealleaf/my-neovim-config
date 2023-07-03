@@ -136,7 +136,7 @@ return {
 			on_attach = on_attach,
 			view = {
 				side = "right",
-				width = 50,
+				width = 35,
 			},
 			update_cwd = true,
 			update_focused_file = {
