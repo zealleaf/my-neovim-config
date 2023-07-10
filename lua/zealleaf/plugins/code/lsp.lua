@@ -184,14 +184,12 @@ return {
 				}
 
 				-- common
+				vim.keymap.set("n", "gf", "<Cmd>Lspsaga finder<CR>", opts)
 				vim.keymap.set("n", "gh", "<Cmd>Lspsaga hover_doc<CR>", opts)
-				vim.keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-				vim.keymap.set("n", "gd", "<Cmd>Lspsaga lsp_finder<CR>", opts)
-				vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+				vim.keymap.set("n", "gd", "<Cmd>Lspsaga goto_definition<CR>", opts)
 				vim.keymap.set("n", "gp", "<Cmd>Lspsaga peek_definition<CR>", opts)
 				vim.keymap.set("n", "gr", "<Cmd>Lspsaga rename<CR>", opts)
 				vim.keymap.set("n", "ga", "<Cmd>Lspsaga code_action<CR>", opts)
-				vim.keymap.set("n", "gl", ":LspRestart<CR>", opts)
 				vim.keymap.set("n", "gs", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
 				vim.keymap.set("n", "gs", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
 
