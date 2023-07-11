@@ -40,7 +40,7 @@ return {
 				},
 				center = {
 					{
-						icon = " ",
+						icon = " ",
 						desc = "Open projects",
 						action = "Telescope projects",
 						key = "p",
@@ -58,13 +58,19 @@ return {
 						key = "c",
 					},
 					{
-						icon = " ",
+						icon = "󱇧 ",
 						desc = "Edit bindings",
 						action = "edit ~/.config/nvim/lua/zealleaf/bind.lua",
 						key = "b",
 					},
 					{
-						icon = " ",
+						icon = "󱇧 ",
+						desc = "Edit gitconfig",
+						action = "edit ~/.gitconfig",
+						key = "g",
+					},
+					{
+						icon = "󱇧 ",
 						desc = "Edit projects history",
 						action = "edit ~/.local/share/nvim/project_nvim/project_history",
 						key = "h",
