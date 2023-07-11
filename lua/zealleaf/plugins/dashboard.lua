@@ -67,7 +67,7 @@ return {
 						icon = " ",
 						desc = "Edit projects history",
 						action = "edit ~/.local/share/nvim/project_nvim/project_history",
-						key = "s",
+						key = "h",
 					},
 				},
 				footer = { [[]], [[]], [[code as life]] },
