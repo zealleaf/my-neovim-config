@@ -76,3 +76,9 @@ bind("n", "<leader>gp", "<cmd>Gitsigns prev_hunk<CR>")
 bind("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>")
 bind("n", "<leader>gd", "<cmd>GitDiff<CR>")
 bind("n", "<leader>gdc", "<cmd>GitDiffClose<CR>")
+
+-- translate
+bind("n", "tz", "viw:Translate zh-CN<CR>")
+bind("n", "te", "viw:Translate en -output=replace<CR>")
+bind("v", "tz", "<cmd>Translate zh-CN<CR>")
+bind("v", "te", "<cmd>Translate en -output=replace<CR>")
