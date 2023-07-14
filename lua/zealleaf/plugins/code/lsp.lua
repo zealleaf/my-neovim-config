@@ -17,7 +17,6 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"cssls",
-					"emmet_ls",
 					"html",
 					"rust_analyzer",
 					"lua_ls",
@@ -271,12 +270,6 @@ return {
 			lspconfig["html"].setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
-			})
-
-			lspconfig["emmet_ls"].setup({
-				capabilities = capabilities,
-				on_attach = on_attach,
-				filetypes = { "html" },
 			})
 
 			lspconfig["lua_ls"].setup({
