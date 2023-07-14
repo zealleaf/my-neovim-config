@@ -3,7 +3,7 @@ return {
 	config = function()
 		require("lualine").setup({
 			options = {
-				theme = "ayu",
+				theme = "auto",
 				component_separators = "|",
 				section_separators = "",
 			},
