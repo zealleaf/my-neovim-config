@@ -19,6 +19,13 @@ return {
 		vim.cmd("autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()")
 
 		toggleterm.setup({
+			size = function(term)
+				if term.direction == "horizontal" then
+					return 15
+				elseif term.direction == "vertical" then
+					return vim.o.columns * 0.3
+				end
+			end,
 			open_mapping = [[<leader>t]],
 		})
 
@@ -47,12 +54,64 @@ return {
 			end,
 		})
 
-		---@diagnostic disable-next-line: lowercase-global
-		function lazygit_toggle()
+		local float_term = Terminal:new({
+			direction = "float",
+			close_on_exit = true,
+		})
+
+		local vertical_term = Terminal:new({
+			direction = "vertical",
+			close_on_exit = true,
+		})
+
+		local horizontal_term = Terminal:new({
+			direction = "horizontal",
+			close_on_exit = true,
+		})
+
+		local term_map = {}
+
+		term_map.toggle_float_term = function()
+			if float_term:is_open() then
+				float_term:close()
+				return
+			end
+			vertical_term:close()
+			horizontal_term:close()
+			float_term:open()
+		end
+
+		term_map.toggle_vertical_term = function()
+			if vertical_term:is_open() then
+				vertical_term:close()
+				return
+			end
+			float_term:close()
+			horizontal_term:close()
+			vertical_term:open()
+		end
+
+		term_map.toggle_horizontal_term = function()
+			if horizontal_term:is_open() then
+				horizontal_term:close()
+				return
+			end
+			float_term:close()
+			vertical_term:close()
+			horizontal_term:open()
+		end
+
+		term_map.toggle_lazygit_term = function()
 			lazygit_term:toggle()
 		end
 
-		vim.keymap.set({ "n", "t" }, "<leader>l", "<cmd>lua lazygit_toggle()<CR>")
-		vim.keymap.set({ "n", "t" }, "<leader>ta", "<cmd>ToggleTermToggleAll<CR>")
+		local mapToggleTerm = function(termMap)
+			vim.keymap.set({ "n", "t" }, "<leader>tf", termMap.toggle_float_term)
+			vim.keymap.set({ "n", "t" }, "<leader>tv", termMap.toggle_vertical_term)
+			vim.keymap.set({ "n", "t" }, "<leader>th", termMap.toggle_horizontal_term)
+			vim.keymap.set({ "n", "t" }, "<leader>l", termMap.toggle_lazygit_term)
+		end
+
+		mapToggleTerm(term_map)
 	end,
 }
