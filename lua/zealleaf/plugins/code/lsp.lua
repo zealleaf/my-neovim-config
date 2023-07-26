@@ -1,4 +1,5 @@
 return {
+	--[[ -- Basic configuration ]]
 	-- mason
 	{
 		"williamboman/mason.nvim",
@@ -31,7 +32,7 @@ return {
 			})
 
 			require("mason-null-ls").setup({
-				ensure_installed = { "stylua", "prettierd", "rustfmt", "eslint_d" },
+				ensure_installed = { "stylua", "prettierd", "eslint_d" },
 				automatic_installation = true,
 			})
 		end,
@@ -60,7 +61,6 @@ return {
 			null_ls.setup({
 				sources = {
 					formatting.stylua, -- lua formatter
-					formatting.rustfmt,
 					formatting.prettierd.with({
 						extra_filetypes = { "astro" },
 					}),
@@ -299,11 +299,6 @@ return {
 			lspconfig["rust_analyzer"].setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
-				settings = {
-					["rust-analyzer"] = {
-						checkOnSave = {},
-					},
-				},
 			})
 
 			-- 其他配置
@@ -343,6 +338,15 @@ return {
 					source = "always",
 				},
 			})
+		end,
+	},
+	--[[ Additional configuration ]]
+	-- rust
+	{
+		"rust-lang/rust.vim",
+		ft = "rust",
+		init = function()
+			vim.g.rustfmt_autosave = 1
 		end,
 	},
 }
