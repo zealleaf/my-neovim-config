@@ -31,6 +31,11 @@ return {
 
 			telescope.setup({
 				defaults = {
+					layout_strategy = "vertical",
+					layout_config = {
+						vertical = { width = 0.8, height = 0.5 },
+						-- other layout configuration here
+					},
 					file_ignore_patterns = { "node_modules", ".git" },
 					mappings = {
 						i = {
