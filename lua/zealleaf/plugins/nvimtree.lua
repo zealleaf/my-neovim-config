@@ -114,17 +114,6 @@ return {
 		vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 
 		require("nvim-tree").setup({
-			-- change folder arrow icons
-			renderer = {
-				icons = {
-					glyphs = {
-						folder = {
-							arrow_closed = "",
-							arrow_open = "",
-						},
-					},
-				},
-			},
 			actions = {
 				open_file = {
 					window_picker = {
@@ -142,7 +131,7 @@ return {
 						border = "rounded",
 						width = 300,
 						height = 36,
-						row = 1,
+						row = 300,
 						col = 1,
 					},
 				},
