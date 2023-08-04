@@ -131,7 +131,7 @@ return {
 						border = "rounded",
 						width = 300,
 						height = 36,
-						row = 300,
+						row = 1,
 						col = 1,
 					},
 				},
