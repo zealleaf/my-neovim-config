@@ -124,17 +124,8 @@ return {
 			},
 			on_attach = on_attach,
 			view = {
-				float = {
-					enable = true,
-					open_win_config = {
-						relative = "editor",
-						border = "rounded",
-						width = 300,
-						height = 36,
-						row = 1,
-						col = 1,
-					},
-				},
+				width = 50,
+				side = "right",
 			},
 			update_cwd = true,
 			update_focused_file = {
