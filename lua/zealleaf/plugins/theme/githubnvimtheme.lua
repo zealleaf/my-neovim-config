@@ -3,6 +3,6 @@ return {
 	lazy = false,
 	priority = 999,
 	config = function()
-		vim.cmd([[colorscheme github_dark]])
+		vim.cmd([[colorscheme github_light]])
 	end,
 }
