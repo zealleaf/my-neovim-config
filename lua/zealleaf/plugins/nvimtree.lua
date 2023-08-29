@@ -114,18 +114,18 @@ return {
 		vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 
 		require("nvim-tree").setup({
+			view = {
+				width = 50,
+				side = "right",
+			},
+			on_attach = on_attach,
 			actions = {
 				open_file = {
 					window_picker = {
 						enable = false,
 					},
-					quit_on_open = true,
+					quit_on_open = false,
 				},
-			},
-			on_attach = on_attach,
-			view = {
-				width = 50,
-				side = "right",
 			},
 			update_cwd = true,
 			update_focused_file = {
