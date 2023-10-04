@@ -1,13 +1,28 @@
 return {
 	"lukas-reineke/indent-blankline.nvim",
-	event = "VimEnter",
-	config = function()
-		vim.g.indent_blankline_filetype_exclude = { "dashboard" }
-		vim.opt.termguicolors = true
-		-- vim.cmd([[highlight IndentBlanklineContextChar guifg=#506A8D gui=nocombine]])
-
-		require("indent_blankline").setup({
-			show_current_context = true,
-		})
-	end,
+	main = "ibl",
+	opts = {
+		exclude = {
+			filetypes = {
+				"checkhealth",
+				"help",
+				"terminal",
+				"markdown",
+				"dashboard",
+			},
+			buftypes = {
+				"terminal",
+				"nofile",
+			},
+		},
+		scope = {
+			enabled = true,
+			char = "▎",
+			show_start = false,
+			show_end = false,
+			injected_languages = true,
+			highlight = { "IndentBlanklineContextChar" },
+			priority = 1024,
+		},
+	},
 }
