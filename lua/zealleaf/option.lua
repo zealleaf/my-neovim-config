@@ -1,4 +1,4 @@
-vim.o.timeoutlen = 300
+vim.o.timeoutlen = 200
 
 local opt = vim.opt -- for conciseness
 
