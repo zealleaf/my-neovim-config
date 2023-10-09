@@ -189,7 +189,8 @@ return {
 				-- common
 				vim.keymap.set("n", "gf", "<Cmd>Lspsaga finder<CR>", opts)
 				vim.keymap.set("n", "gh", "<Cmd>Lspsaga hover_doc<CR>", opts)
-				vim.keymap.set("n", "gd", "<Cmd>Lspsaga goto_definition<CR>", opts)
+				-- vim.keymap.set("n", "gd", "<Cmd>Lspsaga goto_definition<CR>", opts)
+				vim.keymap.set("n", "gd", "<c-]>", opts) -- Temporary solution, goto_definition will <c-o> jumping around after use
 				vim.keymap.set("n", "gp", "<Cmd>Lspsaga peek_definition<CR>", opts)
 				vim.keymap.set("n", "gr", "<Cmd>Lspsaga rename<CR>", opts)
 				vim.keymap.set("n", "ga", "<Cmd>Lspsaga code_action<CR>", opts)
