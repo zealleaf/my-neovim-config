@@ -29,13 +29,13 @@ return {
 	event = "BufReadPost",
 	keys = {
 		{
-			"zzo",
+			"<leader>zo",
 			function()
 				require("ufo").openAllFolds()
 			end,
 		},
 		{
-			"zzc",
+			"<leader>zc",
 			function()
 				require("ufo").closeAllFolds()
 			end,
