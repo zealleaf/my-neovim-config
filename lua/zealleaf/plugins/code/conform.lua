@@ -10,32 +10,30 @@ return {
 
 		conform.setup({
 			formatters_by_ft = {
-				c = { "clang_format" },
-				go = {
-					formatters = { "gofumpt", "goimports" },
-					run_all_formatters = true,
-				},
-				html = { "prettierd" },
-				json = { "prettierd" },
-				jsonc = { "prettierd" },
-				rust = { "rustfmt" },
 				bash = { "shfmt" },
 				lua = { "stylua" },
-				-- Conform will use the first available formatter in the list
+				html = { "prettierd" },
+				css = { "prettierd" },
 				javascript = { "prettierd", "eslint_d" },
 				typescript = { "prettierd", "eslint_d" },
 				javascriptreact = { "prettierd", "eslint_d" },
 				typescriptreact = { "prettierd", "eslint_d" },
 				vue = { "prettierd", "eslint_d" },
-				-- Formatters can also be specified with additional options
-				python = {
-					formatters = { "isort", "black" },
-					-- Run formatters one after another instead of stopping at the first success
-					run_all_formatters = true,
-				},
+				json = { "prettierd" },
+				jsonc = { "prettierd" },
 				markdown = {
 					"prettierd",
 					"markdownlint",
+				},
+				c = { "clang_format" },
+				rust = { "rustfmt" },
+				python = {
+					formatters = { "isort", "black" },
+					run_all_formatters = true,
+				},
+				go = {
+					formatters = { "gofumpt", "goimports" },
+					run_all_formatters = true,
 				},
 			},
 		})

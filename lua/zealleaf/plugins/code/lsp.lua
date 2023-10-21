@@ -19,9 +19,7 @@ return {
 			local list = {
 				--lsp
 				"astro-language-server",
-				"css-lsp",
 				"efm",
-				"html-lsp",
 				"lua-language-server",
 				"marksman",
 				"rust-analyzer",
@@ -30,21 +28,19 @@ return {
 				"typescript-language-server",
 				"vue-language-server",
 
-				--eslint
+				--lint
 				"eslint_d",
 				"hadolint",
-				"markdownlint",
 
 				--format
+				"prettierd", -- prettier for jsx, angular, flow, vue, typescript, css, less, scss, html, json, markdown, yaml
+				"stylua",
+				"shfmt",
+				"clang-format",
 				"gofumpt",
 				"goimports",
 				"black",
-				"clang-format",
 				"isort",
-				"markdownlint",
-				"prettierd", -- prettier for jsx, angular, flow, vue, typescript, css, less, scss, html, json, markdown, yaml
-				"shfmt",
-				"stylua",
 			}
 
 			local ensure_installed = function()
@@ -170,6 +166,11 @@ return {
 				on_attach = on_attach,
 			})
 
+			lspconfig["jsonls"].setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+
 			lspconfig["lua_ls"].setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
@@ -199,6 +200,8 @@ return {
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
+
+			lspconfig["eslint"].setup({})
 
 			-- 其他配置
 			vim.lsp.handlers["textDocument/publishDiagnostics"] =
