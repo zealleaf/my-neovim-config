@@ -3,7 +3,6 @@ return {
 	-- mason
 	{
 		"williamboman/mason.nvim",
-		dependencies = { "williamboman/mason-lspconfig.nvim", "jayp0521/mason-null-ls.nvim" },
 		config = function()
 			require("mason").setup({
 				ui = {
@@ -15,171 +14,64 @@ return {
 				},
 			})
 
-			require("mason-lspconfig").setup({
-				ensure_installed = {
-					"cssls",
-					"html",
-					"rust_analyzer",
-					"lua_ls",
-					"tailwindcss",
-					"tsserver",
-					"volar",
-					"svelte",
-					"astro",
-					"marksman",
-				},
-				automatic_installation = true,
-			})
+			local mason_registry = require("mason-registry")
 
-			require("mason-null-ls").setup({
-				ensure_installed = { "stylua", "prettierd", "eslint_d" },
-				automatic_installation = true,
-			})
-		end,
-	},
-	-- colors
-	{
-		"folke/lsp-colors.nvim",
-		config = function()
-			require("lsp-colors").setup({
-				Error = "#db4b4b",
-				Warning = "#e0af68",
-				Information = "#0db9d7",
-				Hint = "#10B981",
-			})
-		end,
-	},
-	-- null-ls
-	{
-		"jose-elias-alvarez/null-ls.nvim",
-		config = function()
-			local null_ls = require("null-ls")
-			local formatting = null_ls.builtins.formatting
-			local diagnostics = null_ls.builtins.diagnostics
-			local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+			local list = {
+				--lsp
+				"astro-language-server",
+				"css-lsp",
+				"efm",
+				"html-lsp",
+				"lua-language-server",
+				"marksman",
+				"rust-analyzer",
+				"svelte-language-server",
+				"tailwindcss-language-server",
+				"typescript-language-server",
+				"vue-language-server",
 
-			null_ls.setup({
-				sources = {
-					formatting.stylua, -- lua formatter
-					formatting.prettierd.with({
-						extra_filetypes = { "astro" },
-					}),
-					formatting.eslint_d.with({
-						condition = function(utils)
-							return utils.root_has_file({
-								".eslintrc",
-								".eslintrc.js",
-								".eslintrc.cjs",
-								".eslintrc.yaml",
-								".eslintrc.yml",
-								".eslintrc.json",
-							})
-						end,
-					}),
-					diagnostics.eslint_d.with({
-						condition = function(utils)
-							return utils.root_has_file({
-								".eslintrc",
-								".eslintrc.js",
-								".eslintrc.cjs",
-								".eslintrc.yaml",
-								".eslintrc.yml",
-								".eslintrc.json",
-							})
-						end,
-					}),
-				},
-				on_attach = function(current_client, bufnr)
-					if current_client.supports_method("textDocument/formatting") then
-						vim.api.nvim_clear_autocmds({
-							group = augroup,
-							buffer = bufnr,
-						})
-						vim.api.nvim_create_autocmd("BufWritePre", {
-							group = augroup,
-							buffer = bufnr,
-							callback = function()
-								vim.lsp.buf.format({
-									filter = function(client)
-										return client.name == "null-ls"
-									end,
-									bufnr = bufnr,
-								})
-							end,
-						})
+				--eslint
+				"eslint_d",
+				"hadolint",
+				"markdownlint",
+
+				--format
+				"gofumpt",
+				"goimports",
+				"black",
+				"clang-format",
+				"isort",
+				"markdownlint",
+				"prettierd", -- prettier for jsx, angular, flow, vue, typescript, css, less, scss, html, json, markdown, yaml
+				"shfmt",
+				"stylua",
+			}
+
+			local ensure_installed = function()
+				for _, name in pairs(list) do
+					if not mason_registry.is_installed(name) then
+						local package = mason_registry.get_package(name)
+						package:install()
 					end
-				end,
-			})
+				end
+			end
+
+			mason_registry.refresh(vim.schedule_wrap(ensure_installed))
 		end,
 	},
-	-- lspkind
-	{
-		"onsails/lspkind.nvim",
-		config = function()
-			require("lspkind").init({
-				mode = "symbol",
-				preset = "codicons",
-				symbol_map = {
-					Text = "",
-					Method = "ƒ",
-					Function = "",
-					Constructor = "",
-					Field = "",
-					Variable = "",
-					Class = "𝓒",
-					Interface = "ﰮ",
-					Module = "",
-					Property = "",
-					Unit = "",
-					Value = "",
-					Enum = "ℰ",
-					Keyword = "",
-					Snippet = "﬌",
-					Color = "",
-					File = "",
-					Reference = "",
-					Folder = "",
-					EnumMember = "",
-					Constant = "",
-					Struct = "𝓢",
-					Event = "🗲",
-					Operator = "",
-					TypeParameter = "𝙏",
-				},
-			})
-		end,
-	},
-	-- lspsaga
-	{
-		"glepnir/lspsaga.nvim",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter", -- optional
-			"nvim-tree/nvim-web-devicons", -- optional
-		},
-		config = function()
-			require("lspsaga").setup({
-				ui = {
-					winblend = 10,
-					border = "rounded",
-					colors = {
-						normal_bg = "#002b36",
-					},
-				},
-			})
-		end,
-	},
+
 	-- lsg-config
 	{
 		"neovim/nvim-lspconfig",
-		dependencies = { "jose-elias-alvarez/typescript.nvim", "simrat39/rust-tools.nvim", "hrsh7th/cmp-nvim-lsp" },
+		dependencies = { "pmizio/typescript-tools.nvim", "simrat39/rust-tools.nvim", "hrsh7th/cmp-nvim-lsp" },
 		config = function()
 			local lspconfig = require("lspconfig")
 
 			local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-			local typescript = require("typescript")
+			local typescript_tools = require("typescript-tools")
 
-			local on_attach = function(client, bufnr)
+			local on_attach = function(_, bufnr)
 				local opts = {
 					noremap = true,
 					silent = true,
@@ -197,22 +89,23 @@ return {
 				vim.keymap.set("n", "gs", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
 				vim.keymap.set("n", "gs", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
 
-				-- typescript
-				if client.name == "tsserver" then
-					vim.keymap.set("n", "gtr", ":TypescriptRenameFile<CR>") -- rename file and update imports
-					vim.keymap.set("n", "gti", ":TypescriptOrganizeImports<CR>") -- organize imports
-					vim.keymap.set("n", "gtu", ":TypescriptRemoveUnused<CR>") -- remove unused variables
-				end
+				-- format
+				vim.keymap.set("n", "<leader>f", "", {
+					noremap = true,
+					silent = true,
+					buffer = bufnr,
+					callback = function()
+						local conform = require("conform")
+						conform.format({
+							bufnr = bufnr,
+							async = false,
+							lsp_fallback = true,
+						})
+					end,
+				})
 			end
 
 			local capabilities = cmp_nvim_lsp.default_capabilities()
-
-			typescript.setup({
-				server = {
-					capabilities = capabilities,
-					on_attach = on_attach,
-				},
-			})
 
 			lspconfig["marksman"].setup({
 				capabilities = capabilities,
@@ -302,6 +195,11 @@ return {
 				on_attach = on_attach,
 			})
 
+			typescript_tools.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+
 			-- 其他配置
 			vim.lsp.handlers["textDocument/publishDiagnostics"] =
 				vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -341,6 +239,78 @@ return {
 			})
 		end,
 	},
+
+	-- lspsaga
+	{
+		"glepnir/lspsaga.nvim",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter", -- optional
+			"nvim-tree/nvim-web-devicons", -- optional
+		},
+		config = function()
+			require("lspsaga").setup({
+				ui = {
+					winblend = 10,
+					border = "rounded",
+					colors = {
+						normal_bg = "#002b36",
+					},
+				},
+			})
+		end,
+	},
+
+	-- lspkind
+	{
+		"onsails/lspkind.nvim",
+		config = function()
+			require("lspkind").init({
+				mode = "symbol",
+				preset = "codicons",
+				symbol_map = {
+					Text = "",
+					Method = "ƒ",
+					Function = "",
+					Constructor = "",
+					Field = "",
+					Variable = "",
+					Class = "𝓒",
+					Interface = "ﰮ",
+					Module = "",
+					Property = "",
+					Unit = "",
+					Value = "",
+					Enum = "ℰ",
+					Keyword = "",
+					Snippet = "﬌",
+					Color = "",
+					File = "",
+					Reference = "",
+					Folder = "",
+					EnumMember = "",
+					Constant = "",
+					Struct = "𝓢",
+					Event = "🗲",
+					Operator = "",
+					TypeParameter = "𝙏",
+				},
+			})
+		end,
+	},
+
+	-- lsp-colors
+	{
+		"folke/lsp-colors.nvim",
+		config = function()
+			require("lsp-colors").setup({
+				Error = "#db4b4b",
+				Warning = "#e0af68",
+				Information = "#0db9d7",
+				Hint = "#10B981",
+			})
+		end,
+	},
+
 	--[[ Additional configuration ]]
 	-- rust
 	{

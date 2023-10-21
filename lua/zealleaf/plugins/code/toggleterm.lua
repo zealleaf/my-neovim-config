@@ -26,7 +26,7 @@ return {
 					return vim.o.columns * 0.3
 				end
 			end,
-			open_mapping = [[<leader>t]],
+			open_mapping = [[<leader>tt]],
 		})
 
 		local Terminal = require("toggleterm.terminal").Terminal
@@ -106,9 +106,9 @@ return {
 		end
 
 		local mapToggleTerm = function(termMap)
-			vim.keymap.set({ "n", "t" }, "<leader>tf", termMap.toggle_float_term)
-			vim.keymap.set({ "n", "t" }, "<leader>tv", termMap.toggle_vertical_term)
-			vim.keymap.set({ "n", "t" }, "<leader>th", termMap.toggle_horizontal_term)
+			vim.keymap.set({ "n", "t" }, "<leader><space>f", termMap.toggle_float_term)
+			vim.keymap.set({ "n", "t" }, "<leader><space>v", termMap.toggle_vertical_term)
+			vim.keymap.set({ "n", "t" }, "<leader><space>h", termMap.toggle_horizontal_term)
 			vim.keymap.set({ "n", "t" }, "<leader>l", termMap.toggle_lazygit_term)
 		end
 
