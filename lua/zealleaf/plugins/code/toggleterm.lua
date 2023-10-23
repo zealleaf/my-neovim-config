@@ -27,7 +27,7 @@ return {
 					return vim.o.columns * 0.3
 				end
 			end,
-			open_mapping = [[<leader>tt]],
+			open_mapping = [[<leader><space>t]],
 		})
 
 		local Terminal = require("toggleterm.terminal").Terminal
