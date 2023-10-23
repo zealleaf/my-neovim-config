@@ -1,5 +1,6 @@
 return {
 	"dinhhuy258/git.nvim",
+	event = "VeryLazy",
 	config = function()
 		require("git").setup({
 			default_mappings = false,

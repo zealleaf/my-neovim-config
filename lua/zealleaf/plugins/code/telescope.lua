@@ -2,6 +2,7 @@ return {
 	{
 		"nvim-telescope/telescope.nvim",
 		dependencies = { "xiyaowong/telescope-emoji.nvim", "nvim-lua/plenary.nvim" },
+		event = "VeryLazy",
 		config = function()
 			local telescope = require("telescope")
 			local actions = require("telescope.actions")

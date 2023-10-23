@@ -1,6 +1,7 @@
 return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = { "Mofiqul/vscode.nvim" },
+	event = "BufReadPost",
 	config = function()
 		require("lualine").setup({
 			options = {
