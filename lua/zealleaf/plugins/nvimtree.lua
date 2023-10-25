@@ -114,7 +114,7 @@ return {
 		vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
 		vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 
-		require("nvim-tree").setup({
+		nvimtree.setup({
 			view = {
 				width = 50,
 				side = "right",
@@ -125,7 +125,7 @@ return {
 					window_picker = {
 						enable = false,
 					},
-					quit_on_open = false,
+					quit_on_open = true,
 				},
 			},
 			update_cwd = true,
