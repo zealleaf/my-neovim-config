@@ -59,7 +59,11 @@ return {
 	-- lsg-config
 	{
 		"neovim/nvim-lspconfig",
-		dependencies = { "pmizio/typescript-tools.nvim", "simrat39/rust-tools.nvim", "hrsh7th/cmp-nvim-lsp" },
+		dependencies = {
+			"pmizio/typescript-tools.nvim",
+			"simrat39/rust-tools.nvim",
+			"hrsh7th/cmp-nvim-lsp",
+		},
 		config = function()
 			local lspconfig = require("lspconfig")
 
@@ -67,14 +71,16 @@ return {
 
 			local typescript_tools = require("typescript-tools")
 
-			local on_attach = function(_, bufnr)
+			local on_attach = function(client, bufnr)
 				local opts = {
 					noremap = true,
 					silent = true,
 					buffer = bufnr,
 				}
 
-				-- common
+				--[[
+        -- common
+        --]]
 				vim.keymap.set("n", "gf", "<Cmd>Lspsaga finder<CR>", opts)
 				vim.keymap.set("n", "gh", "<Cmd>Lspsaga hover_doc<CR>", opts)
 				-- vim.keymap.set("n", "gd", "<Cmd>Lspsaga goto_definition<CR>", opts)
@@ -85,8 +91,37 @@ return {
 				vim.keymap.set("n", "gs", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
 				vim.keymap.set("n", "gs", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
 
+				--[[
+        -- after common
+        --]]
+
+				-- tsserver
+				if client.name == "typescript-tools" then
+					vim.keymap.set("n", "<space>tf", "<Cmd>TSToolsRenameFile<CR>", opts)
+					vim.keymap.set("n", "<space>to", "<Cmd>TSToolsOrganizeImports<CR>", opts)
+					vim.keymap.set("n", "<space>ta", "<Cmd>TSToolsAddMissingImports<CR>", opts)
+					vim.keymap.set("n", "<space>tu", "<Cmd>TSToolsRemoveUnused<CR>", opts)
+				end
+
+				-- gitsigns
+				vim.keymap.set("n", "<space>gn", "<cmd>Gitsigns next_hunk<CR>")
+				vim.keymap.set("n", "<space>gp", "<cmd>Gitsigns prev_hunk<CR>")
+				vim.keymap.set("n", "<space>gr", "<cmd>Gitsigns reset_hunk<CR>")
+				vim.keymap.set("n", "<space>gd", "<cmd>GitDiff<CR>")
+				vim.keymap.set("n", "<space>gdc", "<cmd>GitDiffClose<CR>")
+
+
+				-- translate
+				vim.keymap.set("n", "<space>z", "viw:Translate zh-CN<CR>")
+				vim.keymap.set("n", "<space>e", "viw:Translate en -output=replace<CR>")
+				vim.keymap.set("v", "<space>z", "<cmd>Translate zh-CN<CR>")
+				vim.keymap.set("v", "<space>e", "<cmd>Translate en -output=replace<CR>")
+
+        -- comment
+        -- link: nvim/lua/zealleaf/plugins/code/comment.lua
+
 				-- format
-				vim.keymap.set("n", "<leader>f", "", {
+				vim.keymap.set("n", "<space>f", "", {
 					noremap = true,
 					silent = true,
 					buffer = bufnr,

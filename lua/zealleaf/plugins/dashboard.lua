@@ -42,7 +42,7 @@ return {
 					},
 					{
 						icon = " ",
-						desc = "Recent files",
+						desc = "Old files",
 						action = "Telescope oldfiles",
 						key = "f",
 					},
@@ -54,9 +54,9 @@ return {
 					},
 					{
 						icon = "󱇧 ",
-						desc = "Edit bindings",
-						action = "edit ~/.config/nvim/lua/zealleaf/bind.lua",
-						key = "b",
+						desc = "Edit keymap",
+						action = "edit ~/.config/nvim/lua/zealleaf/keymap.lua",
+						key = "m",
 					},
 					{
 						icon = "󱇧 ",
@@ -66,7 +66,7 @@ return {
 					},
 					{
 						icon = "󱇧 ",
-						desc = "Edit projects history",
+						desc = "Edit project history",
 						action = "edit ~/.local/share/nvim/project_nvim/project_history",
 						key = "h",
 					},

@@ -1,4 +1,4 @@
 require("zealleaf.option")
-require("zealleaf.bind")
+require("zealleaf.keymap")
 require("zealleaf.plugin")
 require("zealleaf.other")
