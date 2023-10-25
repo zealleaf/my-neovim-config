@@ -110,15 +110,18 @@ return {
 				vim.keymap.set("n", "<space>gd", "<cmd>GitDiff<CR>")
 				vim.keymap.set("n", "<space>gdc", "<cmd>GitDiffClose<CR>")
 
-
 				-- translate
 				vim.keymap.set("n", "<space>z", "viw:Translate zh-CN<CR>")
 				vim.keymap.set("n", "<space>e", "viw:Translate en -output=replace<CR>")
 				vim.keymap.set("v", "<space>z", "<cmd>Translate zh-CN<CR>")
 				vim.keymap.set("v", "<space>e", "<cmd>Translate en -output=replace<CR>")
 
-        -- comment
-        -- link: nvim/lua/zealleaf/plugins/code/comment.lua
+				-- increment/decrement numbers
+				vim.keymap.set("n", "<space>a", "<C-a>") -- increment
+				vim.keymap.set("n", "<space>x", "<C-x>") -- decrement
+
+				-- comment
+				-- link: nvim/lua/zealleaf/plugins/code/comment.lua
 
 				-- format
 				vim.keymap.set("n", "<space>f", "", {

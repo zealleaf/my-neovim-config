@@ -38,9 +38,6 @@ vim.keymap.set("n", "<C-n>", ":nohlsearch<CR>", opt)
 -- delete single character without copying into register
 vim.keymap.set("n", "x", '"_x')
 
--- increment/decrement numbers
-vim.keymap.set("n", "<leader>a", "<C-a>") -- increment
-vim.keymap.set("n", "<leader>x", "<C-x>") -- decrement
 
 -- window management
 vim.keymap.set("n", "sh", ":vsp<CR>", opt)
