@@ -92,8 +92,14 @@ return {
 				vim.keymap.set("n", "gs", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
 
 				--[[
-        -- after common
+        -- after common <space>
         --]]
+
+				-- comment
+				-- link: nvim/lua/zealleaf/plugins/code/comment.lua
+
+				-- toggleterm float vertical horizontal
+				-- link: nvim/lua/zealleaf/plugins/code/toggleterm.lua
 
 				-- tsserver
 				if client.name == "typescript-tools" then
@@ -116,15 +122,25 @@ return {
 				vim.keymap.set("v", "<space>z", "<cmd>Translate zh-CN<CR>")
 				vim.keymap.set("v", "<space>e", "<cmd>Translate en -output=replace<CR>")
 
-				-- increment/decrement numbers
-				vim.keymap.set("n", "<space>a", "<C-a>") -- increment
-				vim.keymap.set("n", "<space>x", "<C-x>") -- decrement
+				--[[
+        -- after common <leader>
+        --]]
 
-				-- comment
-				-- link: nvim/lua/zealleaf/plugins/code/comment.lua
+				-- nvimufo
+				-- link: nvim/lua/zealleaf/plugins/code/nvimufo.lua
+
+				-- telescope
+				-- link: nvim/lua/zealleaf/plugins/code/telescope.lua
+
+				-- toggleterm lazygit
+				-- link: nvim/lua/zealleaf/plugins/code/toggleterm.lua
+
+				-- increment/decrement numbers
+				vim.keymap.set("n", "<leader>a", "<C-a>") -- increment
+				vim.keymap.set("n", "<leader>x", "<C-x>") -- decrement
 
 				-- format
-				vim.keymap.set("n", "<space>f", "", {
+				vim.keymap.set("n", "<leader>f", "", {
 					noremap = true,
 					silent = true,
 					buffer = bufnr,

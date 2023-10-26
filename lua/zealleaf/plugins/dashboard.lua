@@ -55,7 +55,7 @@ return {
 					{
 						icon = "󱇧 ",
 						desc = "Edit keymap",
-						action = "edit ~/.config/nvim/lua/zealleaf/keymap.lua",
+						action = "edit ~/.config/nvim/lua/zealleaf/bind.lua",
 						key = "b",
 					},
 					{
