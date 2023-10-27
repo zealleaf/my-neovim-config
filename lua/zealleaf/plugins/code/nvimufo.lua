@@ -29,19 +29,19 @@ return {
 	event = "BufReadPost",
 	keys = {
 		{
-			"<leader>zo",
+			"<space>zo",
 			function()
 				require("ufo").openAllFolds()
 			end,
 		},
 		{
-			"<leader>zc",
+			"<space>zc",
 			function()
 				require("ufo").closeAllFolds()
 			end,
 		},
 		{
-			"zk",
+			"<space>zk",
 			function()
 				local winid = require("ufo").peekFoldedLinesUnderCursor()
 				if not winid then
