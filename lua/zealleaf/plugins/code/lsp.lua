@@ -125,6 +125,20 @@ return {
 				vim.keymap.set("v", "<space>z", "<cmd>Translate zh-CN<CR>")
 				vim.keymap.set("v", "<space>e", "<cmd>Translate en -output=replace<CR>")
 
+				-- codeium
+				vim.keymap.set("i", "<space>a", function()
+					return vim.fn["codeium#Accept"]()
+				end, { expr = true })
+				vim.keymap.set("i", "<space>j", function()
+					return vim.fn["codeium#CycleCompletions"](1)
+				end, { expr = true })
+				vim.keymap.set("i", "<space>k", function()
+					return vim.fn["codeium#CycleCompletions"](-1)
+				end, { expr = true })
+				vim.keymap.set("i", "<space>c", function()
+					return vim.fn["codeium#Clear"]()
+				end, { expr = true })
+
 				-- increment/decrement numbers
 				vim.keymap.set("n", "<space>a", "<C-a>") -- increment
 				vim.keymap.set("n", "<space>x", "<C-x>") -- decrement
