@@ -157,6 +157,9 @@ return {
 				-- toggleterm float lazygit
 				-- link: nvim/lua/zealleaf/plugins/code/toggleterm.lua
 
+        -- hop
+        -- link: nvim/lua/zealleaf/plugins/code/hop.lua
+
 				-- codeium
 				vim.keymap.set("i", "<leader>a", function()
 					return vim.fn["codeium#Accept"]()
