@@ -3,6 +3,6 @@ return {
 	lazy = false,
 	priority = 999,
 	config = function()
-		vim.cmd("colorscheme Terafox")
+		vim.cmd("colorscheme Nightfox")
 	end,
 }
