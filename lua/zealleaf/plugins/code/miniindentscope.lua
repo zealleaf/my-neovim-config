@@ -45,8 +45,8 @@ return {
 				-- object_scope_with_border = "ai",
 
 				-- Motions (jump to respective border line; if not present - body line)
-				goto_top = "<space>[",
-				goto_bottom = "<space>]",
+				goto_top = "<space><",
+				goto_bottom = "<space>>",
 			},
 
 			-- Options which control scope computation
