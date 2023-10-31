@@ -104,6 +104,9 @@ return {
 				-- nvimufo
 				-- link: nvim/lua/zealleaf/plugins/code/nvimufo.lua
 
+        -- miniindentscope
+        -- link: nvim/lua/zealleaf/plugins/code/miniindentscope.lua
+
 				-- tsserver
 				if client.name == "typescript-tools" then
 					vim.keymap.set("n", "<space>tf", "<Cmd>TSToolsRenameFile<CR>", opts)
