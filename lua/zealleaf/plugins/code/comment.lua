@@ -4,6 +4,9 @@ return {
 		dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
 		event = "VeryLazy",
 		config = function()
+			vim.cmd("autocmd BufEnter * set formatoptions-=cro")
+			vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
+
 			require("Comment").setup({
 				toggler = {
 					---Line-comment toggle keymap
