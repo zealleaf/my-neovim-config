@@ -19,7 +19,6 @@ vim.keymap.set("n", "ss", ":wa!<CR>", opt)
 vim.keymap.set("n", "q", "<C-w>c", opt)
 vim.keymap.set("n", "<C-q>", ":qa!<CR>", opt)
 -- use <C-Spa> to exit insert mode
-vim.keymap.set("n", "J", "", opt)
 vim.keymap.set("n", "H", "^")
 vim.keymap.set("n", "L", "$")
 vim.keymap.set("n", "J", "5j")
