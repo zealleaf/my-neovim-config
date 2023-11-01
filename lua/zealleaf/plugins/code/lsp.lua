@@ -92,7 +92,7 @@ return {
 				vim.keymap.set("n", "gs", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
 
 				--[[
-        -- after common <space>
+        -- <space>
         --]]
 
 				-- comment
@@ -104,8 +104,8 @@ return {
 				-- nvimufo
 				-- link: nvim/lua/zealleaf/plugins/code/nvimufo.lua
 
-        -- miniindentscope
-        -- link: nvim/lua/zealleaf/plugins/code/miniindentscope.lua
+				-- miniindentscope
+				-- link: nvim/lua/zealleaf/plugins/code/miniindentscope.lua
 
 				-- tsserver
 				if client.name == "typescript-tools" then
@@ -148,7 +148,7 @@ return {
 				})
 
 				--[[
-        -- after common <leader>
+        -- <leader>
         --]]
 
 				-- telescope
@@ -157,20 +157,24 @@ return {
 				-- toggleterm float lazygit
 				-- link: nvim/lua/zealleaf/plugins/code/toggleterm.lua
 
-        -- hop
-        -- link: nvim/lua/zealleaf/plugins/code/hop.lua
+				-- hop
+				-- link: nvim/lua/zealleaf/plugins/code/hop.lua
+
+				--[[
+        -- <C-some-key>
+        --]]
 
 				-- codeium
-				vim.keymap.set("i", "<leader>a", function()
+				vim.keymap.set("i", "<C-l>", function()
 					return vim.fn["codeium#Accept"]()
 				end, { expr = true })
-				vim.keymap.set("i", "<leader>j", function()
+				vim.keymap.set("i", "<C-j>", function()
 					return vim.fn["codeium#CycleCompletions"](1)
 				end, { expr = true })
-				vim.keymap.set("i", "<leader>k", function()
+				vim.keymap.set("i", "<C-k>", function()
 					return vim.fn["codeium#CycleCompletions"](-1)
 				end, { expr = true })
-				vim.keymap.set("i", "<leader>c", function()
+				vim.keymap.set("i", "<C-h>", function()
 					return vim.fn["codeium#Clear"]()
 				end, { expr = true })
 			end
