@@ -10,24 +10,33 @@ return {
 
 			telescope.load_extension("emoji")
 
+			vim.keymap.set("n", "<leader>t/", function()
+				builtin.current_buffer_fuzzy_find()
+			end)
+
 			vim.keymap.set("n", "<leader>tf", function()
 				builtin.find_files({
 					no_ignore = false,
 					hidden = true,
 				})
 			end)
+
 			vim.keymap.set("n", "<leader>ts", function()
 				builtin.live_grep()
 			end)
+
 			vim.keymap.set("n", "<leader>tb", function()
 				builtin.buffers()
 			end)
+
 			vim.keymap.set("n", "<leader>th", function()
 				builtin.help_tags()
 			end)
+
 			vim.keymap.set("n", "<leader>td", function()
 				builtin.diagnostics()
 			end)
+
 			vim.keymap.set("n", "<leader>te", ":Telescope emoji<CR>")
 
 			telescope.setup({
