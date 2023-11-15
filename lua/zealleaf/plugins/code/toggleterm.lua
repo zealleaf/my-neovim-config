@@ -109,7 +109,7 @@ return {
 		local mapToggleTerm = function(termMap)
 			vim.keymap.set({ "n" }, "<space>v", termMap.toggle_vertical_term)
 			vim.keymap.set({ "n" }, "<space>h", termMap.toggle_horizontal_term)
-			vim.keymap.set({ "n", 't' }, "<leader>f", termMap.toggle_float_term)
+			vim.keymap.set({ "n", "t" }, "<leader>f", termMap.toggle_float_term)
 			vim.keymap.set({ "n", "t" }, "<leader>l", termMap.toggle_lazygit_term)
 		end
 

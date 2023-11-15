@@ -7,7 +7,7 @@ return {
 				"help",
 				"alpha",
 				"dashboard",
-        "NvimTree",
+				"NvimTree",
 				"neo-tree",
 				"Trouble",
 				"trouble",
@@ -33,7 +33,7 @@ return {
 				-- |MiniIndentscope.gen_animation| for builtin options. To disable
 				-- animation, use `require('mini.indentscope').gen_animation.none()`.
 				-- animation = --<function: implements constant 20ms between steps>,
-        animation = require("mini.indentscope").gen_animation.none(),
+				animation = require("mini.indentscope").gen_animation.none(),
 
 				-- Symbol priority. Increase to display on top of more symbols.
 				priority = 2,

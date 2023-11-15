@@ -37,7 +37,6 @@ vim.keymap.set("n", "<C-n>", ":nohlsearch<CR>", opt)
 -- delete single character without copying into register
 vim.keymap.set("n", "x", '"_x')
 
-
 -- window management
 vim.keymap.set("n", "sh", ":vsp<CR>", opt)
 vim.keymap.set("n", "sv", ":sp<CR>", opt)
