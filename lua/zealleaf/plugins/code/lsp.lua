@@ -60,17 +60,14 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
-			"pmizio/typescript-tools.nvim",
+			"jose-elias-alvarez/typescript.nvim",
 			"simrat39/rust-tools.nvim",
 			"hrsh7th/cmp-nvim-lsp",
 		},
 		config = function()
 			local lspconfig = require("lspconfig")
-
 			local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
-			local typescript_tools = require("typescript-tools")
-
+			local capabilities = cmp_nvim_lsp.default_capabilities()
 			local on_attach = function(client, bufnr)
 				local opts = {
 					noremap = true,
@@ -108,11 +105,13 @@ return {
 				-- link: nvim/lua/zealleaf/plugins/code/miniindentscope.lua
 
 				-- tsserver
-				if client.name == "typescript-tools" then
-					vim.keymap.set("n", "<space>tf", "<Cmd>TSToolsRenameFile<CR>", opts)
-					vim.keymap.set("n", "<space>to", "<Cmd>TSToolsOrganizeImports<CR>", opts)
-					vim.keymap.set("n", "<space>ta", "<Cmd>TSToolsAddMissingImports<CR>", opts)
-					vim.keymap.set("n", "<space>tu", "<Cmd>TSToolsRemoveUnused<CR>", opts)
+				if client.name == "tsserver" then
+					require("typescript").setup({})
+					vim.keymap.set("n", "<space>tr", "<Cmd>TypescriptRenameFile<CR>", opts)
+					vim.keymap.set("n", "<space>to", "<Cmd>TypescriptOrganizeImports<CR>", opts)
+					vim.keymap.set("n", "<space>ta", "<Cmd>TypescriptAddMissingImports<CR>", opts)
+					vim.keymap.set("n", "<space>tu", "<Cmd>TypescriptRemoveUnused<CR>", opts)
+					vim.keymap.set("n", "<space>tf", "<Cmd>TypescriptFixAll<CR>", opts)
 				end
 
 				-- gitsigns
@@ -179,8 +178,7 @@ return {
 				end, { expr = true })
 			end
 
-			local capabilities = cmp_nvim_lsp.default_capabilities()
-
+			--[[ language configuration ]]
 			lspconfig["marksman"].setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
@@ -274,14 +272,14 @@ return {
 				on_attach = on_attach,
 			})
 
-			typescript_tools.setup({
+			lspconfig["tsserver"].setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
 
 			lspconfig["eslint"].setup({})
 
-			-- 其他配置
+			--[[ other configurations ]]
 			vim.lsp.handlers["textDocument/publishDiagnostics"] =
 				vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 					underline = true,
