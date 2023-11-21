@@ -60,14 +60,16 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
-			"jose-elias-alvarez/typescript.nvim",
 			"simrat39/rust-tools.nvim",
 			"hrsh7th/cmp-nvim-lsp",
 		},
 		config = function()
 			local lspconfig = require("lspconfig")
 			local cmp_nvim_lsp = require("cmp_nvim_lsp")
+
 			local capabilities = cmp_nvim_lsp.default_capabilities()
+
+			---@diagnostic disable-next-line: unused-local
 			local on_attach = function(client, bufnr)
 				local opts = {
 					noremap = true,
@@ -104,15 +106,9 @@ return {
 				-- miniindentscope
 				-- link: nvim/lua/zealleaf/plugins/code/miniindentscope.lua
 
-				-- tsserver
-				if client.name == "tsserver" then
-					require("typescript").setup({})
-					vim.keymap.set("n", "<space>tr", "<Cmd>TypescriptRenameFile<CR>", opts)
-					vim.keymap.set("n", "<space>to", "<Cmd>TypescriptOrganizeImports<CR>", opts)
-					vim.keymap.set("n", "<space>ta", "<Cmd>TypescriptAddMissingImports<CR>", opts)
-					vim.keymap.set("n", "<space>tu", "<Cmd>TypescriptRemoveUnused<CR>", opts)
-					vim.keymap.set("n", "<space>tf", "<Cmd>TypescriptFixAll<CR>", opts)
-				end
+				-- typescript
+				-- link: nvim/lua/zealleaf/plugins/code/lsp.lua
+				-- additional configuration
 
 				-- gitsigns
 				vim.keymap.set("n", "<space>gn", "<cmd>Gitsigns next_hunk<CR>")
@@ -399,4 +395,43 @@ return {
 			vim.g.rustfmt_autosave = 1
 		end,
 	},
+	-- typescript
+	{
+		"jose-elias-alvarez/typescript.nvim",
+		ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+		config = function()
+			local opts = {
+				noremap = true,
+				silent = true,
+			}
+
+			vim.keymap.set("n", "<space>tr", "<Cmd>TypescriptRenameFile<CR>", opts)
+			vim.keymap.set("n", "<space>to", "<Cmd>TypescriptOrganizeImports<CR>", opts)
+			vim.keymap.set("n", "<space>ta", "<Cmd>TypescriptAddMissingImports<CR>", opts)
+			vim.keymap.set("n", "<space>tu", "<Cmd>TypescriptRemoveUnused<CR>", opts)
+			vim.keymap.set("n", "<space>tf", "<Cmd>TypescriptFixAll<CR>", opts)
+
+			require("typescript").setup({})
+		end,
+	},
+
+	-- 	some issues when tailwindcss hover
+	-- 	{
+	-- 		"pmizio/typescript-tools.nvim",
+	-- 		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+	-- 		config = function()
+	-- 			local opts = {
+	-- 				noremap = true,
+	-- 				silent = true,
+	-- 			}
+	--
+	-- 			vim.keymap.set("n", "<space>tr", "<Cmd>TSToolsRenameFile<CR>", opts)
+	-- 			vim.keymap.set("n", "<space>to", "<Cmd>TSToolsOrganizeImports<CR>", opts)
+	-- 			vim.keymap.set("n", "<space>ta", "<Cmd>TSToolsAddMissingImports<CR>", opts)
+	-- 			vim.keymap.set("n", "<space>tu", "<Cmd>TSToolsRemoveUnused<CR>", opts)
+	-- 			vim.keymap.set("n", "<space>tf", "<Cmd>TSToolsFixAll<CR>", opts)
+	--
+	-- 			require("typescript-tools").setup({})
+	-- 		end,
+	-- 	},
 }
